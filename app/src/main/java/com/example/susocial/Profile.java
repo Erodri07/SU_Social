@@ -28,7 +28,6 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         //him
-        //02.15 K
         requestNotiButton = findViewById(R.id.RequestNotifications);
         requestNotiButton.setOnClickListener(this);
 

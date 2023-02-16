@@ -27,6 +27,8 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+
+        getSupportActionBar().setTitle("My Profile");
         //him
         requestNotiButton = findViewById(R.id.RequestNotifications);
         requestNotiButton.setOnClickListener(this);

@@ -28,8 +28,10 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
+        //UI for ActionBar
         getSupportActionBar().setTitle("My Profile");
-        //him
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         requestNotiButton = findViewById(R.id.RequestNotifications);
         requestNotiButton.setOnClickListener(this);
 

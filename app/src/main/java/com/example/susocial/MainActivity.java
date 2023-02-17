@@ -18,11 +18,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // UI for ActionBar
         getSupportActionBar().setTitle("Main Page");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         //Buttons
         profileButton = findViewById(R.id.profileButton);
         profileButton.setOnClickListener(this);
+
     }
 
     @Override

@@ -15,6 +15,12 @@
         android:theme="@style/Theme.SUSocial"
         tools:targetApi="31">
         <activity
+            android:name=".LoginRegistry"
+            android:exported="false" />
+        <activity
+            android:name=".LoginUI"
+            android:exported="false" />
+        <activity
             android:name=".Profile"
             android:exported="false" />
         <activity

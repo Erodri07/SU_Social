@@ -1,79 +1,108 @@
 <?xml version = "1.0" encoding = "utf-8"?>
 <RelativeLayout xmlns:android = "http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools = "http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height = "match_parent"
     android:paddingTop="16dp" tools:context = ".MainActivity">
 
     <TextView
-        android:text = "@string/app_name"
-        android:layout_width="wrap_content"
-        android:layout_height = "wrap_content"
-        android:id = "@+id/textview1"
-        android:textSize = "35sp"
-        android:layout_alignParentTop = "true"
-        android:layout_centerHorizontal = "true"
-        android:textColor="#FFA500"/>
-
-    <TextView
-        android:layout_width = "wrap_content"
-        android:layout_height = "wrap_content"
-        android:text = "Login"
-        android:id = "@+id/textView2"
-        android:layout_below = "@+id/textview1"
-        android:layout_centerHorizontal = "true"
-        android:textColor = "#FF000000"
-        android:textSize = "35sp" />
-
-    <EditText
-        android:paddingTop="100dp"
-        android:paddingBottom="15dp"
-        android:layout_width = "wrap_content"
-        android:layout_height = "wrap_content"
-        android:inputType="textEmailAddress"
-        android:id = "@+id/editText3"
-        android:hint = "Enter SU Email"
-        android:focusable = "true"
-        android:textColorHint = "#FF8C00"
-        android:layout_marginTop = "50dp"
-        android:layout_alignParentStart = "true"
-        android:layout_alignParentEnd = "true" />
-
-    <EditText
-        android:paddingBottom="15dp"
+        android:id="@+id/textview1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:id="@+id/editText4"
-        android:layout_below="@+id/editText3"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp"
+        android:text="@string/app_name"
+        android:textColor="#FFA500"
+        android:textSize="35sp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textview1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="Login"
+        android:textColor="#FF000000"
+        android:textSize="35sp" />
+
+    <EditText
+        android:id="@+id/editText3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginEnd="20dp"
+        android:ems="10"
+        android:focusable="true"
+        android:hint="Enter SU Email"
+        android:inputType="textEmailAddress"
+        android:paddingBottom="15dp"
+        android:textColorHint="#FF8C00" />
+
+    <EditText
+        android:id="@+id/editText4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editText3"
         android:layout_alignEnd="@+id/editText3"
-        android:textColorHint="#FF8C00"
-        android:hint="Password" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="20dp"
+        android:ems="10"
+        android:focusable="true"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:paddingBottom="15dp"
+        android:textColorHint="#FF8C00" />
 
     <Button
         android:id="@+id/passwordButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_centerVertical="true"
-        android:text="forgot password?"/>
+        android:layout_below="@+id/editText4"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="76dp"
+        android:layout_marginEnd="100dp"
+        android:background="@android:color/transparent"
+        android:text="forgot password?"
+        android:textColor="#FF000000" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="login"
         android:id="@+id/loginButton"
-        android:layout_alignParentBottom="true"
-        android:layout_toStartOf="@+id/textview1" />
-
-    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="cancel"
-        android:id="@+id/button2"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_toEndOf="@+id/textview1" />
+        android:layout_marginStart="160dp"
+        android:layout_marginEnd="160dp"
+        android:layout_marginBottom="310dp"
+        android:text="Log In" />
+
+    <Button
+        android:id="@+id/createAccButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editText4"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="false"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="115dp"
+        android:layout_marginEnd="100dp"
+        android:background="@android:color/transparent"
+        android:text="New User?"
+        android:textColor="#FF000000" />
 
 </RelativeLayout>

@@ -1,25 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UserRegistration">
+    tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
+        android:id="@+id/signUpTitle"
+        android:textStyle="bold"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="User Registration"
-        android:textSize="40sp"
-        tools:layout_editor_absoluteX="52dp"
-        tools:layout_editor_absoluteY="80dp" />
+        android:text="Create an Account"
+        android:textSize="35dp"
+        android:textColor="@color/orange"
+        android:gravity="center"
+        android:layout_margin="50dp" />
 
     <EditText
-        android:layout_width="wrap_content"
+        android:id="@+id/fullName"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/signUpTitle"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/darkGrey"
+        android:backgroundTint="@color/grey"
+        android:drawablePadding="20dp"
+        android:hint="Enter Your Full Name"
+        android:inputType="textPersonName"
+        android:padding="20dp"
+        android:textColor="@color/orange"
+        android:textColorHint="@color/orange"
+        android:drawableLeft="@drawable/baseline_person_outline_24"/>
+
+    <EditText
+        android:id="@+id/SUEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/fullName"
         android:hint="Enter SU Email"
+        android:textColorHint="@color/orange"
+        android:textColor="@color/orange"
+        android:layout_margin="10dp"
+        android:padding="20dp"
+        android:drawablePadding="20dp"
+        android:inputType="textEmailAddress"
+        android:background="@color/darkGrey"
+        android:backgroundTint="@color/grey"
+        android:drawableLeft="@drawable/mail_outline"/>
+
+    <EditText
+        android:id="@+id/SUID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/SUEmail"
+        android:hint="Enter SU ID"
+        android:textColorHint="@color/orange"
+        android:textColor="@color/orange"
+        android:layout_margin="10dp"
+        android:padding="20dp"
+        android:drawablePadding="20dp"
+        android:inputType="textEmailAddress"
+        android:background="@color/darkGrey"
+        android:backgroundTint="@color/grey"
+        android:drawableLeft="@drawable/baseline_credit_card_24"
+
+    <EditText
+        android:id="@+id/Password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/SUID"
+        android:hint="Enter a Password"
+        android:textColorHint="@color/orange"
+        android:textColor="@color/orange"
+        android:layout_margin="10dp"
+        android:padding="20dp"
+        android:drawablePadding="20dp"
+        android:inputType="textPassword"
+        android:background="@color/darkGrey"
+        android:backgroundTint="@color/grey"
+        android:drawableLeft="@drawable/outline_lock_24"/>
+
+    <EditText
+        android:id="@+id/passwordConfirm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Password"
+        android:hint="Re-enter Password"
+        android:textColorHint="@color/orange"
+        android:textColor="@color/orange"
+        android:layout_margin="10dp"
+        android:padding="20dp"
+        android:drawablePadding="20dp"
+        android:inputType="textPassword"
+        android:background="@color/darkGrey"
+        android:backgroundTint="@color/grey"
+        android:drawableLeft="@drawable/outline_lock_24"
         />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/passwordConfirm"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:padding="20dp"
+        android:text="Register"
+        android:textColor="@color/white"
+        android:textSize="15sp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</RelativeLayout>

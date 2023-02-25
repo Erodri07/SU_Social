@@ -37,7 +37,7 @@
         android:drawableLeft="@drawable/baseline_person_outline_24"/>
 
     <EditText
-        android:id="@+id/SUEmail"
+        android:id="@+id/SUEmailRegister"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/fullName"
@@ -56,7 +56,7 @@
         android:id="@+id/SUID"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/SUEmail"
+        android:layout_below="@id/SUEmailRegister"
         android:hint="Enter SU ID"
         android:textColorHint="@color/orange"
         android:textColor="@color/orange"
@@ -66,10 +66,10 @@
         android:inputType="textEmailAddress"
         android:background="@color/darkGrey"
         android:backgroundTint="@color/grey"
-        android:drawableLeft="@drawable/baseline_credit_card_24"
+        android:drawableLeft="@drawable/baseline_credit_card_24"/>
 
     <EditText
-        android:id="@+id/Password"
+        android:id="@+id/PasswordRegister"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/SUID"
@@ -88,7 +88,7 @@
         android:id="@+id/passwordConfirm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/Password"
+        android:layout_below="@id/PasswordRegister"
         android:hint="Re-enter Password"
         android:textColorHint="@color/orange"
         android:textColor="@color/orange"
@@ -98,10 +98,10 @@
         android:inputType="textPassword"
         android:background="@color/darkGrey"
         android:backgroundTint="@color/grey"
-        android:drawableLeft="@drawable/outline_lock_24"
-        />
+        android:drawableLeft="@drawable/outline_lock_24"/>
 
     <Button
+        android:id="@+id/RegisterButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/passwordConfirm"

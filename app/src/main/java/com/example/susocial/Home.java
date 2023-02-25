@@ -1,23 +1,32 @@
 package com.example.susocial;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 
-public class Home extends AppCompatActivity {
+public class Home extends AppCompatActivity implements View.OnClickListener{
     BottomNavigationView bottomNavigationView;
+
+    private FirebaseAuth mAuth;
+    // private DocumentReference  userRef //Implement once we get profile unique information
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        mAuth = FirebaseAuth.getInstance();
 
         //UI for ActionBar
         getSupportActionBar().setTitle("Home");
@@ -56,5 +65,21 @@ public class Home extends AppCompatActivity {
                 return false;
             }
         });
+    }
+
+    @Override
+    protected void onStart(){
+        super.onStart();
+        FirebaseUser user= mAuth.getCurrentUser();
+        if (user==null){
+            startActivity(new Intent(Home.this, LoginUI.class));
+        }
+
+    }
+
+
+    @Override
+    public void onClick(View v) {
+
     }
 }

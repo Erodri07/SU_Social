@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "45795375031",
+    "project_id": "su-social",
+    "storage_bucket": "su-social.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:45795375031:android:ec0a5e5336cc6d3c28da32",
+        "android_client_info": {
+          "package_name": "com.example.susocial"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "45795375031-tmjteq6c13psh5fe1jm6cqami8hplqck.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD6GValX5MqIScNYp7KEbO9B7UlzRzWoiY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "45795375031-tmjteq6c13psh5fe1jm6cqami8hplqck.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

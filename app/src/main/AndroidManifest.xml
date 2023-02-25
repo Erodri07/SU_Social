@@ -18,6 +18,9 @@
             android:name=".edit_profile"
             android:exported="false" />
         <activity
+            android:name=".LoginUI"
+            android:exported="false" />
+        <activity
             android:name=".UserRegistration"
             android:exported="false" />
         <activity

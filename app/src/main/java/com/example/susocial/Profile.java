@@ -11,16 +11,20 @@ import android.app.AlertDialog;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class Profile extends AppCompatActivity implements View.OnClickListener {
     //areNotificationsEnabled()
     private final int NOTIFICATION_PERMISSION_CODE = 1;
     private Button requestNotiButton;
+    private Button logoutButton;
 
 
     @Override
@@ -34,6 +38,9 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
 
         requestNotiButton = findViewById(R.id.RequestNotifications);
         requestNotiButton.setOnClickListener(this);
+
+        logoutButton = findViewById(R.id.logout);
+        logoutButton.setOnClickListener(this);
 
     }
 
@@ -50,6 +57,9 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
                     requestNotiPermission();
                 }
                 break;
+            case R.id.logout:
+                FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(Profile.this, LoginUI.class));
         }
     }
 

@@ -44,6 +44,7 @@ public class LoginUI extends AppCompatActivity implements View.OnClickListener{
         forgotPassButton.setOnClickListener(this);
         registerButton = findViewById(R.id.createAccButton);
         registerButton.setOnClickListener(this);
+        registerButton.setVisibility(View.VISIBLE);
 
         //popup text for if user fails
         //if(login fails) then display this message

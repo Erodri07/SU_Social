@@ -111,7 +111,7 @@
         android:layout_marginStart="69dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="157dp"
-        android:background="@android:color/black"
+        android:background="@android:color/transparent"
         android:padding="15sp"
         android:text="Don't have an account?"
         android:textColor="@color/black"

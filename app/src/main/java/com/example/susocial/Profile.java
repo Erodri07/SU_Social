@@ -65,6 +65,7 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
             case R.id.logout:
                 FirebaseAuth.getInstance().signOut();
                 startActivity(new Intent(Profile.this, LoginUI.class));
+                break;
                 // click on button, should go to edit_profile activity;
             case R.id.EditProfile:
                 startActivity(new Intent(Profile.this,edit_profile.class));

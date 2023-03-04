@@ -22,7 +22,6 @@ public class Logout_notification extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        logout = findViewById(R.id.logout);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
             NotificationChannel channel = new NotificationChannel("Logout", "Lougout notification", NotificationManager.IMPORTANCE_DEFAULT);

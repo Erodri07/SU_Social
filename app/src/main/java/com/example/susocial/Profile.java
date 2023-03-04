@@ -27,10 +27,6 @@ import com.google.firebase.auth.FirebaseAuth;
 public class Profile extends AppCompatActivity implements View.OnClickListener {
     //areNotificationsEnabled()
     private final int NOTIFICATION_PERMISSION_CODE = 1;
-    private Button requestNotiButton;
-    private Button logoutButton;
-    private Button editProfButton;
-
     private AlertDialog.Builder dialogBuilder;
     private AlertDialog myDialog;
     private Button btndeleteCancel,btndeleteYes;
@@ -45,14 +41,6 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
         getSupportActionBar().setTitle("My Profile");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        requestNotiButton = findViewById(R.id.RequestNotifications);
-        requestNotiButton.setOnClickListener(this);
-
-        logoutButton = findViewById(R.id.logout);
-        logoutButton.setOnClickListener(this);
-
-        editProfButton = findViewById(R.id.EditProfile);
-        editProfButton.setOnClickListener(this);
 
 
     }
@@ -67,6 +55,14 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
         switch (item.getItemId()){
             case R.id.settingItem1:
                 startActivity(new Intent(Profile.this,edit_profile.class));
+            case R.id.settingItem2:
+                if (ContextCompat.checkSelfPermission(Profile.this,
+                        Manifest.permission.POST_NOTIFICATIONS) == PackageManager.PERMISSION_GRANTED) {
+                    Toast.makeText(Profile.this, "Notification Permissions Granted",
+                            Toast.LENGTH_SHORT).show();
+                } else {
+                    requestNotiPermission();
+                }
                 return true;
             case R.id.settingItem3:
                 deleteConfirmationDialog();
@@ -106,31 +102,6 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
 
     }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.RequestNotifications:
-                //request Notifications from User
-                if (ContextCompat.checkSelfPermission(Profile.this, 
-                        Manifest.permission.POST_NOTIFICATIONS) == PackageManager.PERMISSION_GRANTED) {
-                    Toast.makeText(Profile.this, "Notification Permissions Granted", 
-                            Toast.LENGTH_SHORT).show();
-                } else {
-                    requestNotiPermission();
-                }
-                break;
-            case R.id.logout:
-                FirebaseAuth.getInstance().signOut();
-                startActivity(new Intent(Profile.this, LoginUI.class));
-                break;
-                // click on button, should go to edit_profile activity;
-            case R.id.EditProfile:
-                startActivity(new Intent(Profile.this,edit_profile.class));
-                break;
-
-        }
-    }
-
     private void requestNotiPermission() {
         if (ActivityCompat.shouldShowRequestPermissionRationale(this,
                 Manifest.permission.POST_NOTIFICATIONS)) {
@@ -165,5 +136,10 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
                 Toast.makeText(this, "Notifications Will Now Be Pushed", Toast.LENGTH_SHORT).show();
             }
         }
+    }
+
+    @Override
+    public void onClick(View v) {
+
     }
 }

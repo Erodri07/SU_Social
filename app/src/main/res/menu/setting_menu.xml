@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/setting"
+        android:title=""
+        android:icon="@drawable/setting"
+        app:showAsAction="always">
+        <menu>
+            <item android:id="@+id/settingItem1"
+                android:title="Edit My Profile"
+                android:icon="@drawable/edit_profile"
+                app:showAsAction="never"/>
+            <item android:id="@+id/settingItem2"
+                android:title="Notification Request"
+                android:icon="@drawable/setting_notification"
+                app:showAsAction="never"/>
+            <item android:id="@+id/settingItem3"
+                android:title="Delete My Account"
+                android:icon="@drawable/setting_delete"
+                app:showAsAction="never"/>
+            <item android:id="@+id/settingItem4"
+                android:title="Log out"
+                android:icon="@drawable/setting_logout"
+                app:showAsAction="never"/>
+        </menu>
+    </item>
+
+</menu>

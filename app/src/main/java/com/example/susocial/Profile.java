@@ -22,7 +22,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class Profile extends AppCompatActivity implements View.OnClickListener {
     //areNotificationsEnabled()
@@ -30,6 +33,8 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
     private AlertDialog.Builder dialogBuilder;
     private AlertDialog myDialog;
     private Button btndeleteCancel,btndeleteYes;
+    FirebaseAuth firebaseAuth;
+    FirebaseUser firebaseUser;
 
 
     @Override
@@ -77,6 +82,9 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
     }
     // Delete Account Confiramtion Popup window
     public void deleteConfirmationDialog(){
+        firebaseAuth = FirebaseAuth.getInstance();
+        firebaseUser = firebaseAuth.getCurrentUser();
+
         dialogBuilder = new AlertDialog.Builder(this);
         final View popupView = getLayoutInflater().inflate(R.layout.deleteaccount_confirmation,null);
 
@@ -90,7 +98,18 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
         btndeleteYes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Profile.this, LoginUI.class));
+                firebaseUser.delete().addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if(task.isSuccessful()){
+                            Toast.makeText(Profile.this,"Account Deleted",Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(Profile.this, LoginUI.class));
+                        }
+                        else {
+                            Toast.makeText(Profile.this,task.getException().getMessage(),Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
             }
         });
         btndeleteCancel.setOnClickListener(new View.OnClickListener() {

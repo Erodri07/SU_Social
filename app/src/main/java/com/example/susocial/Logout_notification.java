@@ -54,7 +54,6 @@ public class Logout_notification extends AppCompatActivity {
                 managerCompat.notify(1, builder.build());
 
 
-
             }
         });
 

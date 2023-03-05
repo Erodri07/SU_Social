@@ -1,5 +1,6 @@
 package com.example.susocial;
 
+import static com.example.susocial.Hasher.hashPassword;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -23,6 +24,7 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.auth.User;
 
+import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -31,7 +33,7 @@ public class UserRegistration extends AppCompatActivity implements View.OnClickL
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
     private String userID;
-
+    private String hashedPassword;
     private EditText userName;
     private EditText userEmail;
     private EditText userPass;
@@ -121,11 +123,31 @@ public class UserRegistration extends AppCompatActivity implements View.OnClickL
                         user.put("userEmail", email);
                         user.put("userSUID", suID);
 
+                        hashedPassword = mAuth.getCurrentUser().getUid();
+
+                        DocumentReference documentReferencehash = db.collection("Hashed Passwords (SHA-256 + SALT)").document(hashedPassword);
+                        try {
+                            String ePassword = hashPassword(password);
+                            Map<String,Object> userP = new HashMap<>();
+                            userP.put("userPassword", ePassword);
+                            documentReferencehash.set(userP).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void unused) {
+                                    Log.d("TAG", "onSuccess: user Profile is Registered for: " + hashedPassword);
+                                }
+                            });
+                        } catch (NoSuchAlgorithmException e) {
+                            throw new RuntimeException(e);
+                        }
+
                         documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void unused) {
                                 Log.d("TAG", "onSuccess: user Profile is Registered for: "+ userID);
+
                             }
+
+
                         });
 
                         startActivity(new Intent(UserRegistration.this, LoginUI.class));

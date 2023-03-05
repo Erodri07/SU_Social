@@ -1,6 +1,7 @@
 package com.example.susocial;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
@@ -20,12 +21,18 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 
 public class Profile extends AppCompatActivity implements View.OnClickListener {
     //areNotificationsEnabled()
@@ -33,9 +40,16 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
     private AlertDialog.Builder dialogBuilder;
     private AlertDialog myDialog;
     private Button btndeleteCancel,btndeleteYes;
-    FirebaseAuth firebaseAuth;
-    FirebaseUser firebaseUser;
+    private FirebaseAuth firebaseAuth;
+    private FirebaseUser firebaseUser;
+    private FirebaseFirestore db;
+    private DocumentReference userRef;
 
+    private TextView userName;
+    private TextView userEmail;
+    private TextView userMajor;
+    private TextView userGradYear;
+    private TextView userInterests;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,9 +60,32 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
         getSupportActionBar().setTitle("My Profile");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        userName = findViewById(R.id.displayUserName);
+        userEmail = findViewById(R.id.displayEmail);
+        userMajor = findViewById(R.id.displayMajor);
+        userGradYear = findViewById(R.id.displayGradYear);
+        userInterests = findViewById(R.id.displayInterests);
 
-
+        db = FirebaseFirestore.getInstance();
+        userRef = db.collection("users").document(FirebaseAuth.getInstance().getCurrentUser().getUid());
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        userRef.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                userName.setText(value.getString("userName"));
+                userEmail.setText(value.getString("userEmail"));
+                userMajor.setText(value.getString("Major"));
+                userGradYear.setText(value.getString("Graduation Year"));
+                userInterests.setText(value.getString("Interests"));
+            }
+        });
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
         MenuInflater inflater = getMenuInflater();

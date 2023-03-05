@@ -15,9 +15,12 @@
         android:theme="@style/Theme.SUSocial"
         tools:targetApi="31">
         <activity
-            android:name=".edit_profile"
-            android:parentActivityName=".Profile"
+            android:name=".passwordRetrieval"
             android:exported="false" />
+        <activity
+            android:name=".edit_profile"
+            android:exported="false"
+            android:parentActivityName=".Profile" />
         <activity
             android:name=".LoginUI"
             android:exported="false" />

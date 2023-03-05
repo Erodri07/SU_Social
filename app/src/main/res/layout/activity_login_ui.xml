@@ -94,11 +94,11 @@
         android:layout_width="158dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/PasswordLogin"
-        android:layout_marginTop="49dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="157dp"
         android:layout_marginBottom="10dp"
         android:layout_centerHorizontal="true"
-        android:padding="15dp"
+        android:padding="10dp"
         android:text="Log In"
         android:textSize="15sp" />
 
@@ -108,11 +108,11 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/GetPasswordButton"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="69dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="65dp"
+        android:layout_marginTop="0dp"
         android:layout_marginEnd="157dp"
         android:background="@android:color/transparent"
-        android:padding="15sp"
+        android:padding="2sp"
         android:text="Don't have an account?"
         android:textColor="@color/black"
         android:textSize="11sp" />

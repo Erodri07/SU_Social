@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -44,8 +45,15 @@ public class edit_profile extends AppCompatActivity implements View.OnClickListe
         saveChanges.setOnClickListener(this);
 
         db = FirebaseFirestore.getInstance();
-        userRef = db.collection("users").document(FirebaseAuth.getInstance().getCurrentUser().getUid());
-        
+        mAuth = FirebaseAuth.getInstance();
+        FirebaseUser user = mAuth.getCurrentUser();
+        if (user == null) {
+            startActivity(new Intent(edit_profile.this, LoginUI.class));
+        }
+        else {
+            userRef = db.collection("users").document(FirebaseAuth.getInstance().getCurrentUser().getUid());
+        }
+
         fullName = findViewById(R.id.edit_name);
         major = findViewById(R.id.edit_major);
         gradYear = findViewById(R.id.edit_year);

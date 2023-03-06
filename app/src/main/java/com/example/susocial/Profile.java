@@ -67,7 +67,14 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
         userInterests = findViewById(R.id.displayInterests);
 
         db = FirebaseFirestore.getInstance();
-        userRef = db.collection("users").document(FirebaseAuth.getInstance().getCurrentUser().getUid());
+        firebaseAuth = FirebaseAuth.getInstance();
+        firebaseUser = firebaseAuth.getCurrentUser();
+        if (firebaseUser == null) {
+            startActivity(new Intent(Profile.this, LoginUI.class));
+        }
+        else {
+            userRef = db.collection("users").document(FirebaseAuth.getInstance().getCurrentUser().getUid());
+        }
     }
 
     @Override

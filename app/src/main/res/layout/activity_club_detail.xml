@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ClubDetail">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/ic_profile"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+
+            android:layout_gravity="center"
+            android:text="Active Minds at Syracuse University"
+            android:textSize="30sp"/>
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="400dp"
+        android:layout_height="250dp"
+        android:layout_margin="10dp"
+        android:fillViewport="true"
+        android:scrollbarSize="10dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:text="Active Minds is established for the expressed purpose of: (1) Increasing Syracuse University students’, faculty’s, and staffs’ awareness of issues surrounding mental health, substance abuse, and learning disabilities; issues surrounding mental health, substance abuse, and learning disabilities; the symptoms related to the above disorders; and mental health and disability resources available both on the Syracuse campus and in the surrounding community (2) Reducing stigma toward people living with mental illness, people with substance abuse problems, and people with learning disabilities so that students will feel more comfortable seeking help when it is needed and openly discussing mental-health related issues (3) Promoting a general awareness of comprehensive “self health” by emphasizing techniques that care for the body as well as the mind (4) Providing Syracuse students with easy access to information about Eating Disorders, Depression, Bipolar Disorder, Schizophrenia, Post Traumatic Stress Disorder, Generalized Anxiety Disorder, Substance Abuse, and Learning Disabilities (5) Serving as a liaison between Syracuse’s student body and the mental health community by hosting guest speakers, providing informational fact sheets, organizing charity fundraisers, maintaining a comprehensive website, and organizing other events designed to reduce stigma and raise awareness" />
+    </ScrollView>
+    <LinearLayout
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:text="Rate:"
+            android:textSize="16sp"
+            android:textColor="@color/orange"/>
+
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="90dp"
+            android:text="Contact Information:"
+            android:textSize="16sp"
+            android:textColor="@color/orange"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="4dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="20dp"
+            android:text="4.5/5"
+            android:textColor="@color/orange"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="90dp"
+            android:text="1111 Madison Ave Syracuse, NY 13210     E: ethomp07@syr.edu    P: 201-419-0663"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp">
+        <Button
+            android:id="@+id/navg_rate"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="25dp"
+            android:text="Rate"/>
+        <Button
+            android:id="@+id/navg_chat"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="15dp"
+            android:text="Send Message"/>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

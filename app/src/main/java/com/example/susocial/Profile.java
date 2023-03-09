@@ -21,6 +21,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -50,6 +51,7 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
     private TextView userMajor;
     private TextView userGradYear;
     private TextView userInterests;
+    private ImageView userPicture;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +67,7 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
         userMajor = findViewById(R.id.displayMajor);
         userGradYear = findViewById(R.id.displayGradYear);
         userInterests = findViewById(R.id.displayInterests);
+        userPicture = findViewById(R.id.displayUserPicture);
 
         db = FirebaseFirestore.getInstance();
         firebaseAuth = FirebaseAuth.getInstance();
@@ -89,6 +92,7 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
                 userMajor.setText(value.getString("Major"));
                 userGradYear.setText(value.getString("Graduation Year"));
                 userInterests.setText(value.getString("Interests"));
+
             }
         });
     }

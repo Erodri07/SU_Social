@@ -2,15 +2,19 @@ package com.example.susocial;
 
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -30,6 +34,7 @@ public class edit_profile extends AppCompatActivity implements View.OnClickListe
     private EditText major;
     private EditText gradYear;
     private EditText userInterests;
+
 
 
     @Override
@@ -58,6 +63,7 @@ public class edit_profile extends AppCompatActivity implements View.OnClickListe
         major = findViewById(R.id.edit_major);
         gradYear = findViewById(R.id.edit_year);
         userInterests = findViewById(R.id.edit_interest);
+
         
 
     }
@@ -71,7 +77,6 @@ public class edit_profile extends AppCompatActivity implements View.OnClickListe
                 updateProfile();
         }
     }
-
     private void updateProfile() {
         String newUserName = fullName.getText().toString();
         String newMajor = major.getText().toString();

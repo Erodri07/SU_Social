@@ -12,16 +12,21 @@ import android.text.TextUtils;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-public class edit_profile extends AppCompatActivity implements View.OnClickListener {
+import java.lang.reflect.Array;
+
+public class edit_profile extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemSelectedListener {
 
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
@@ -31,8 +36,8 @@ public class edit_profile extends AppCompatActivity implements View.OnClickListe
     private Button saveChanges;
 
     private EditText fullName;
-    private EditText major;
-    private EditText gradYear;
+    private Spinner major;
+    private Spinner gradYear;
     private EditText userInterests;
 
 
@@ -60,11 +65,20 @@ public class edit_profile extends AppCompatActivity implements View.OnClickListe
         }
 
         fullName = findViewById(R.id.edit_name);
-        major = findViewById(R.id.edit_major);
-        gradYear = findViewById(R.id.edit_year);
         userInterests = findViewById(R.id.edit_interest);
 
-        
+        major = findViewById(R.id.edit_major);
+        ArrayAdapter<CharSequence> majorAdapter = ArrayAdapter.createFromResource(this, R.array.ListOfMajors, android.R.layout.simple_spinner_item);
+        majorAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        major.setAdapter(majorAdapter);
+        major.setOnItemSelectedListener(this);
+
+        gradYear = findViewById(R.id.edit_year);
+        ArrayAdapter<CharSequence> gradAdapter = ArrayAdapter.createFromResource(this, R.array.GraduationYears, android.R.layout.simple_spinner_item);
+        gradAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        gradYear.setAdapter(gradAdapter);
+        gradYear.setOnItemSelectedListener(this);
+
 
     }
     @Override
@@ -79,8 +93,10 @@ public class edit_profile extends AppCompatActivity implements View.OnClickListe
     }
     private void updateProfile() {
         String newUserName = fullName.getText().toString();
-        String newMajor = major.getText().toString();
-        String newGradYear = gradYear.getText().toString();
+        //String newMajor = major.getText().toString();
+        //String newGradYear = gradYear.getText().toString();
+        String newMajor = major.getSelectedItem().toString();
+        String newGradYear = gradYear.getSelectedItem().toString();
         String newInterests = userInterests.getText().toString();
 
         if (TextUtils.isEmpty(newUserName)) {
@@ -88,11 +104,11 @@ public class edit_profile extends AppCompatActivity implements View.OnClickListe
             fullName.requestFocus();
         }
         else if (TextUtils.isEmpty(newMajor)) {
-            major.setError("New Major cannot be Empty");
+            //major.setError("New Major cannot be Empty");
             major.requestFocus();
         }
         else if (TextUtils.isEmpty(newGradYear)) {
-            gradYear.setError("Gradutation Year cannot be Empty");
+            //gradYear.setError("Gradutation Year cannot be Empty");
             gradYear.requestFocus();
         }
         else if (TextUtils.isEmpty(newInterests)) {
@@ -101,11 +117,28 @@ public class edit_profile extends AppCompatActivity implements View.OnClickListe
         }
         else{
             userRef.update("userName", newUserName);
-            userRef.update("Major", newMajor);
             userRef.update("Graduation Year", newGradYear);
+            userRef.update("Major", newMajor);
+            if (newMajor.matches("Major")) {
+                userRef.update("Major", "Undeclared");
+            }
+            if (newGradYear.matches("Graduation Year")) {
+                userRef.update("Graduation Year", "N/A");
+            }
             userRef.update("Interests", newInterests);
 
             startActivity(new Intent(edit_profile.this, Profile.class));
         }
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        String text = parent.getItemAtPosition(position).toString();
+
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
     }
 }

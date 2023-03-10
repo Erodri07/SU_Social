@@ -36,7 +36,7 @@
         android:paddingLeft="10dp"
         android:textColor="@color/grey"/>
 
-    <EditText
+    <Spinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Major"
@@ -47,7 +47,7 @@
         android:paddingLeft="10dp"
         android:textColor="@color/grey"/>
 
-    <EditText
+    <Spinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Graduation Year"
@@ -57,7 +57,9 @@
         android:drawablePadding="7dp"
         android:paddingLeft="10dp"
         android:inputType="numberSigned"
-        android:textColor="@color/grey"/>
+        android:textColor="@color/grey"
+
+        />
 
     <EditText
         android:layout_width="match_parent"

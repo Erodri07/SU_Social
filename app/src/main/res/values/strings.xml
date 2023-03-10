@@ -9,4 +9,35 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+    <!-- used for edit profile -->
+    <string-array name="GraduationYears">
+        <item>Graduation Year</item>
+        <item>2023</item>
+        <item>2024</item>
+        <item>2025</item>
+        <item>2026</item>
+        <item>2027</item>
+        <item>2028</item>
+    </string-array>
+
+    <string-array name="ListOfMajors">
+        <item>Major</item>
+        <item>Accounting</item>
+        <item>Aerospace Engineering</item>
+        <item>Animated and Visual Effects</item>
+        <item>Architecture</item>
+        <item>Business</item>
+        <item>Chemical Engineering</item>
+        <item>Civil Engineering</item>
+        <item>Computer Engineering</item>
+        <item>Computer Science</item>
+        <item>Economics</item>
+        <item>Electrical Engineering</item>
+        <item>Finance</item>
+        <item>Law</item>
+        <item>Management</item>
+        <item>Physics</item>
+    </string-array>
+
 </resources>

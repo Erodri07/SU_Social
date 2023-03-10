@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -14,13 +16,22 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.susocial.ClubDetail;
 import com.example.susocial.R;
 
-import java.util.List;
+import org.checkerframework.checker.units.qual.C;
+import org.checkerframework.framework.qual.DefaultQualifier;
 
-public class ClubAdapter extends RecyclerView.Adapter<ClubAdapter.ViewHolder> {
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
+
+public class ClubAdapter extends RecyclerView.Adapter<ClubAdapter.ViewHolder> implements Filterable {
 
     private List<ClubModel> clublist;
+    private List<ClubModel> clublistfull;
 
-    public ClubAdapter(List<ClubModel>clublist){this.clublist=clublist;}
+    public ClubAdapter(List<ClubModel>clublist){
+        this.clublist=clublist;
+        clublistfull = new ArrayList<>(clublist);
+    }
 
     @NonNull
     @Override
@@ -32,18 +43,53 @@ public class ClubAdapter extends RecyclerView.Adapter<ClubAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ClubAdapter.ViewHolder holder, int position) {
-        int resource = clublist.get(position).getImageview1();
-        String name = clublist.get(position).getTextview1();
-        String introduction = clublist.get(position).getTextview2();
-        String rate = clublist.get(position).getTextview3();
+        ClubModel currentclub = clublist.get(position);
+        holder.cardView1.setBackgroundResource(currentclub.getImageview1());
+        holder.textView1.setText(currentclub.getTextview1());
+        holder.textView2.setText(currentclub.getTextview2());
+        holder.textView3.setText(currentclub.getTextview3());
 
-        holder.setData(resource,name,introduction,rate);
     }
 
     @Override
     public int getItemCount() {
         return clublist.size();
     }
+
+    @Override
+    public Filter getFilter() {
+        return clubfilter;
+    }
+    private Filter clubfilter = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            List<ClubModel> filterlist = new ArrayList<>();
+            if(constraint == null || constraint.length() == 0){
+                filterlist.addAll(clublistfull);
+            }
+            else {
+                String filterPattern = constraint.toString().toLowerCase(Locale.ROOT).trim();
+
+                for (ClubModel club: clublistfull){
+                    if(club.getTextview1().toLowerCase().contains(filterPattern)){
+                       filterlist.add(club);
+                    }
+                }
+            }
+            FilterResults results = new FilterResults();
+            results.values = filterlist;
+
+            return results;
+        }
+
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+            clublist.clear();
+            clublist.addAll((List)results.values);
+            notifyDataSetChanged();;
+        }
+    };
+
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         private CardView cardView1;
@@ -62,13 +108,6 @@ public class ClubAdapter extends RecyclerView.Adapter<ClubAdapter.ViewHolder> {
             textView3 = itemView.findViewById(R.id.club_rate);
 
             itemView.setOnClickListener(this);
-        }
-
-        public void setData(int resource, String name, String introduction, String rate) {
-            cardView1.setBackgroundResource(resource);
-            textView1.setText(name);
-            textView2.setText(introduction);
-            textView3.setText(rate);
         }
 
         @Override

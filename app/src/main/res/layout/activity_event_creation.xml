@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".event_creation">
+
+    <TextView
+        android:id="@+id/eventCreationTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="5dp"
+        android:gravity="center"
+        android:text="Create An Event"
+        android:textColor="@color/orange"
+        android:textSize="30dp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/eventCreationName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/eventCreationTitle"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/darkGrey"
+        android:backgroundTint="@color/grey"
+        android:drawablePadding="20dp"
+        android:hint="Enter Event Name"
+        android:inputType="textPersonName"
+        android:padding="12dp"
+        android:textColor="@color/orange"
+        android:textColorHint="@color/orange" />
+
+    <EditText
+        android:id="@+id/eventCreationDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/eventCreationName"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/darkGrey"
+        android:backgroundTint="@color/grey"
+        android:drawablePadding="20dp"
+        android:hint="Enter Event Date"
+        android:padding="12dp"
+        android:textColor="@color/orange"
+        android:textColorHint="@color/orange" />
+
+    <EditText
+        android:id="@+id/eventCreationTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/eventCreationDate"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/darkGrey"
+        android:backgroundTint="@color/grey"
+        android:drawablePadding="20dp"
+        android:hint="Enter Event Time"
+        android:padding="12dp"
+        android:textColor="@color/orange"
+        android:textColorHint="@color/orange" />
+
+    <EditText
+        android:id="@+id/eventCreationLocation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/eventCreationTime"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/darkGrey"
+        android:backgroundTint="@color/grey"
+        android:drawablePadding="20dp"
+        android:hint="Enter Event Location"
+        android:padding="12dp"
+        android:textColor="@color/orange"
+        android:textColorHint="@color/orange" />
+
+
+    <EditText
+        android:id="@+id/eventCreationDescription"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@id/eventCreationLocation"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:background="@color/darkGrey"
+        android:backgroundTint="@color/grey"
+        android:drawablePadding="20dp"
+        android:hint="Enter Event Description"
+        android:padding="15dp"
+        android:textColor="@color/orange"
+        android:textColorHint="@color/grey" />
+
+    <Button
+        android:id="@+id/clubCreationCancel"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/eventCreationDescription"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        android:padding="10dp"
+        android:text="CANCEL"/>
+
+    <Button
+        android:id="@+id/clubCreationSubmit"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/eventCreationDescription"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="240dp"
+        android:padding="10dp"
+        android:text="SUBMIT" />
+
+</RelativeLayout>

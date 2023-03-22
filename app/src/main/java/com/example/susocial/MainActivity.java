@@ -32,13 +32,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v){
         switch (v.getId()) {
             case R.id.profileButton:
-                openProfileActivity();
+                openEventActivity();
+                break;
+            case R.id.searchButton:
+                openClubActivity();
                 break;
         }
     }
 
-    private void openProfileActivity() {
-        Intent intent = new Intent(this, Profile.class);
+    private void openClubActivity() {
+        Intent intent = new Intent(this, ClubCreation.class);
+        startActivity(intent);
+    }
+
+    private void openEventActivity() {
+        Intent intent = new Intent(this, ClubCreation.class);
         startActivity(intent);
     }
 

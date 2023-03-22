@@ -86,7 +86,7 @@ public class ClubCreation extends AppCompatActivity implements View.OnClickListe
             data.put("ContactInfo", contactInfo);
             data.put("Description", description);
 
-            db.collection("ClubsAndEvents")
+            db.collection("Clubs")
                             .add(data)
                                     .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                                         @Override

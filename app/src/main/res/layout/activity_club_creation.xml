@@ -76,7 +76,7 @@
     <EditText
         android:id="@+id/clubCreationDescription"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="200dp"
         android:layout_below="@id/clubCreationContactInfo"
         android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"

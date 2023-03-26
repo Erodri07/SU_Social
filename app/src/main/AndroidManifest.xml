@@ -55,6 +55,10 @@
             android:exported="false"
             android:parentActivityName=".Home" />
         <activity
+            android:name=".passwordRetrieval"
+            android:exported="false" />
+
+        <activity
             android:name=".Home"
             android:exported="true">
             <intent-filter>

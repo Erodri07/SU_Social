@@ -45,10 +45,6 @@ public class LoginUI extends AppCompatActivity implements View.OnClickListener{
         registerButton = findViewById(R.id.createAccButton);
         registerButton.setOnClickListener(this);
         registerButton.setVisibility(View.VISIBLE);
-
-        //popup text for if user fails
-        //if(login fails) then display this message
-        Toast.makeText(LoginUI.this, "Login Failed", Toast.LENGTH_SHORT).show();
     }
 
     private void logInUser(){
@@ -75,6 +71,10 @@ public class LoginUI extends AppCompatActivity implements View.OnClickListener{
                     }
                     else{
                         Toast.makeText(LoginUI.this, "Log In Error: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+
+                        //popup text for if user fails
+                        //if(login fails) then display this message
+                        Toast.makeText(LoginUI.this, "Login Failed", Toast.LENGTH_SHORT).show();
                     }
                 }
             });
@@ -92,7 +92,14 @@ public class LoginUI extends AppCompatActivity implements View.OnClickListener{
             case R.id.createAccButton:
                 openRegisterActivity();
                 break;
+            case R.id.GetPasswordButton:
+                openForgetPass();
         }
+    }
+
+    private void openForgetPass() {
+        Intent intent = new Intent(this, passwordRetrieval.class);
+        startActivity(intent);
     }
 
     private void openRegisterActivity() {

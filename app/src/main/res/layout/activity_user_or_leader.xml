@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".UserOrLeader">
+    <androidx.cardview.widget.CardView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="120dp"
+        app:cardCornerRadius="75dp"
+        app:cardPreventCornerOverlap="false">
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@mipmap/app_logo"
+            android:scaleType="fitCenter"
+            tools:layout_editor_absoluteX="118dp"
+            tools:layout_editor_absoluteY="169dp" />
+
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/ChooseClubLeader"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="I am a Club Leader."
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="40dp"/>
+
+    <Button
+        android:id="@+id/ChooseEventLeader"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="I am a Event Leader."
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="50dp"/>
+
+    <Button
+        android:id="@+id/ChooseUser"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="Neither of them."
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="40dp"/>
+
+
+</LinearLayout>

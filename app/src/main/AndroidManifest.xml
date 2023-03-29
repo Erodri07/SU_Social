@@ -15,6 +15,9 @@
         android:theme="@style/Theme.SUSocial"
         tools:targetApi="31">
         <activity
+            android:name=".UserOrLeader"
+            android:exported="false" />
+        <activity
             android:name=".event_creation"
             android:exported="false" />
         <activity

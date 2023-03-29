@@ -74,6 +74,7 @@ public class UserRegistration extends AppCompatActivity implements View.OnClickL
         switch(v.getId()) {
             case R.id.RegisterButton:
                 createUser();
+                startActivity(new Intent(UserRegistration.this,UserOrLeader.class));
                 break;
         }
     }

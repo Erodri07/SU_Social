@@ -74,7 +74,6 @@ public class UserRegistration extends AppCompatActivity implements View.OnClickL
         switch(v.getId()) {
             case R.id.RegisterButton:
                 createUser();
-                startActivity(new Intent(UserRegistration.this,UserOrLeader.class));
                 break;
         }
     }
@@ -151,7 +150,7 @@ public class UserRegistration extends AppCompatActivity implements View.OnClickL
                                             }
                                         });
 
-                                        startActivity(new Intent(UserRegistration.this, LoginUI.class));
+                                        startActivity(new Intent(UserRegistration.this, UserOrLeader.class));
                                     } else {
                                         Toast.makeText(UserRegistration.this, "Registration Error: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                                     }

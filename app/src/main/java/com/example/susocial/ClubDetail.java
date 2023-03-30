@@ -15,9 +15,14 @@ import com.example.susocial.Club.ClubModel;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.AggregateQuery;
+import com.google.firebase.firestore.AggregateQuerySnapshot;
+import com.google.firebase.firestore.AggregateSource;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
@@ -29,7 +34,7 @@ public class ClubDetail extends AppCompatActivity implements View.OnClickListene
     private Button clubRate;
     private Button clubChat;
     private DocumentReference clubRef;
-    private CollectionReference collectRef;
+    private DocumentReference collectRef;
     private FirebaseFirestore db;
     private FirebaseAuth mAuth;
     private List<ClubModel> clublist;
@@ -51,6 +56,9 @@ public class ClubDetail extends AppCompatActivity implements View.OnClickListene
         db = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
 
+        Intent intent = getIntent();
+        String clubName = intent.getStringExtra("clubName");
+
         TextView nameTextView = findViewById(R.id.cdetail_name);
         TextView descripTextView = findViewById(R.id.cdetail_descrip);
         TextView rateTextView = findViewById(R.id.cdetail_rate);
@@ -59,14 +67,15 @@ public class ClubDetail extends AppCompatActivity implements View.OnClickListene
         TextView leaderTextView = findViewById(R.id.cdetail_leader);
         // clubimageView.setImageResource(R.drawable.ic_profile);
 
-        // clubRef = db.collection("Clubs").document(mAuth.getCurrentUser().getUid());
-        collectRef = db.collection("Club");
-
-        collectRef.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+        DocumentReference clubsList = db.collection("Clubs").document(clubName);
+        clubsList.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if (task.isSuccessful()) {
-                    for (QueryDocumentSnapshot document : task.getResult()) {
+                    DocumentSnapshot document = task.getResult();
+
+                    if (document.exists()) {
+                        Log.d("TAG", "DocumentSnapshot Data: " + document.getData());
                         String cname = document.getString("Name");
                         String cdescription = document.getString("Description");
                         String ccontact = document.getString("ContactInfo");
@@ -80,8 +89,14 @@ public class ClubDetail extends AppCompatActivity implements View.OnClickListene
                         contactTextView.setText(ccontact);
                         clubimageView.setImageResource(cimage);
                         leaderTextView.setText(cleader);
-
                     }
+                    else {
+                        Log.d("TAG", "No Such Document");
+                        Log.d("TAG", clubName);
+                    }
+                }
+                else {
+                    Log.d("TAG", "Get Failed with, " + task.getException());
                 }
             }
         });

@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.tabs.TabLayout;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -80,26 +81,28 @@ public class ClubCreation extends AppCompatActivity implements View.OnClickListe
             clubDes.setError("Description cannot be Empty");
             clubDes.requestFocus();
         } else {
+            CollectionReference clubsList = db.collection("Clubs");
             Map<String, Object> data = new HashMap<>();
             data.put("Name", name);
             data.put("President", president);
             data.put("ContactInfo", contactInfo);
             data.put("Description", description);
+            clubsList.document(name).set(data);
 
-            db.collection("Clubs")
-                            .add(data)
-                                    .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                                        @Override
-                                        public void onSuccess(DocumentReference documentReference) {
-                                            Log.d("TAG", "DocumentSnapshot written with ID: " + documentReference.getId());
-                                        }
-                                    })
-                                            .addOnFailureListener(new OnFailureListener() {
-                                                @Override
-                                                public void onFailure(@NonNull Exception e) {
-                                                    Log.w("TAG", "Error adding document", e);
-                                                }
-                                            });
+//            db.collection("Clubs")
+//                            .add(data)
+//                                    .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+//                                        @Override
+//                                        public void onSuccess(DocumentReference documentReference) {
+//                                            Log.d("TAG", "DocumentSnapshot written with ID: " + documentReference.getId());
+//                                        }
+//                                    })
+//                                            .addOnFailureListener(new OnFailureListener() {
+//                                                @Override
+//                                                public void onFailure(@NonNull Exception e) {
+//                                                    Log.w("TAG", "Error adding document", e);
+//                                                }
+//                                            });
             Toast.makeText(this, "Club Created", Toast.LENGTH_SHORT).show();
             startActivity(new Intent(ClubCreation.this, Home.class));
 

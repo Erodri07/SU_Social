@@ -33,7 +33,7 @@ public class ClubAdapter extends RecyclerView.Adapter<ClubAdapter.ViewHolder> { 
         this.documentIds = documentIds;
     }
     public interface OnItemClickListener{
-        void onItemClick(int position);
+        void onItemClick(int position, String clubName);
     }
     public void setOnItemClickListener(OnItemClickListener listener){
         mlistener = listener;
@@ -112,8 +112,9 @@ public class ClubAdapter extends RecyclerView.Adapter<ClubAdapter.ViewHolder> { 
             itemView.setOnClickListener(v -> {
                 if(mlistener != null){
                     int position = getAdapterPosition();
+                    String clubName = textView1.getText().toString();
                     if (position !=RecyclerView.NO_POSITION){
-                        mlistener.onItemClick(position);
+                        mlistener.onItemClick(position, clubName);
                     }
                 }
             });

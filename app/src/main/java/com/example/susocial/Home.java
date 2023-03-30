@@ -124,9 +124,9 @@ public class Home extends AppCompatActivity implements View.OnClickListener,Club
     }
 
     @Override
-    public void onItemClick(int position) {
+    public void onItemClick(int position, String clubName) {
         Intent intent = new Intent(this,ClubDetail.class);
-        intent.putExtra("position",position);
+        intent.putExtra("clubName",clubName);
         startActivity(intent);
     }
 }

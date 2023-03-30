@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -79,27 +80,29 @@ public class event_creation extends AppCompatActivity implements View.OnClickLis
             eventDescription.setError("Description cannot be Empty");
             eventDescription.requestFocus();
         } else {
+            CollectionReference eventsList = db.collection("Events");
             Map<String, Object> data = new HashMap<>();
             data.put("Name", name);
             data.put("Date", date);
             data.put("Time", time);
             data.put("Location", location);
             data.put("Description", description);
+            eventsList.document(name).set(data);
 
-            db.collection("Events")
-                    .add(data)
-                    .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                        @Override
-                        public void onSuccess(DocumentReference documentReference) {
-                            Log.d("TAG", "DocumentSnapshot written with ID: " + documentReference.getId());
-                        }
-                    })
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Log.w("TAG", "Error adding document", e);
-                        }
-                    });
+//            db.collection("Events")
+//                    .add(data)
+//                    .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+//                        @Override
+//                        public void onSuccess(DocumentReference documentReference) {
+//                            Log.d("TAG", "DocumentSnapshot written with ID: " + documentReference.getId());
+//                        }
+//                    })
+//                    .addOnFailureListener(new OnFailureListener() {
+//                        @Override
+//                        public void onFailure(@NonNull Exception e) {
+//                            Log.w("TAG", "Error adding document", e);
+//                        }
+//                    });
             Toast.makeText(this, "Event Created", Toast.LENGTH_SHORT).show();
             startActivity(new Intent(event_creation.this, Home.class));
         }

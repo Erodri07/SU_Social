@@ -34,6 +34,11 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.squareup.picasso.Picasso;
+
+import java.io.IOException;
+import java.net.URL;
+
 
 public class Profile extends AppCompatActivity implements View.OnClickListener {
     //areNotificationsEnabled()
@@ -92,6 +97,9 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
                 userMajor.setText(value.getString("Major"));
                 userGradYear.setText(value.getString("Graduation Year"));
                 userInterests.setText(value.getString("Interests"));
+
+                String url=value.getString("profilePic");
+                Picasso.get().load(url).fit().centerCrop().into(userPicture);
 
             }
         });

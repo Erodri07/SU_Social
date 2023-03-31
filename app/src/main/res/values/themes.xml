@@ -18,6 +18,10 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
+    <style name="ratingBar">
+        <item name="colorControlNormal">#F7A09696</item>
+        <item name="colorControlActivated">@color/orange</item>
+    </style>
 
     <style name="Theme.SUSocial.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 

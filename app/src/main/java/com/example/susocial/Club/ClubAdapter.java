@@ -1,6 +1,7 @@
 package com.example.susocial.Club;
 
 import android.content.Intent;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,13 +22,13 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
 
 public class ClubAdapter extends RecyclerView.Adapter<ClubAdapter.ViewHolder> { //implements Filterable
 
     private List<ClubModel> clublist;
     private List<String> documentIds;
     private OnItemClickListener mlistener;
-
 
     public ClubAdapter(List<String>documentIds){
         this.documentIds = documentIds;
@@ -53,7 +54,6 @@ public class ClubAdapter extends RecyclerView.Adapter<ClubAdapter.ViewHolder> { 
                         String description = document.getString("Description");
                         String rate = "N/A";
                         int image = R.drawable.ic_profile;
-
                         ClubModel clubMode = new ClubModel(image,name,description,rate);
                         if(clublist!=null){
                             clublist.add(clubMode);

@@ -127,13 +127,14 @@
             android:id="@+id/navg_rate"
             android:layout_width="150dp"
             android:layout_height="50dp"
-            android:layout_marginLeft="25dp"
+            android:layout_weight="1"
             android:text="Rate"/>
         <Button
             android:id="@+id/navg_chat"
             android:layout_width="150dp"
             android:layout_height="50dp"
-            android:layout_marginLeft="15dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="25dp"
             android:text="Send Message"/>
 
     </LinearLayout>

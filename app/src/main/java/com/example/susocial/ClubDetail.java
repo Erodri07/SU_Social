@@ -73,7 +73,6 @@ public class ClubDetail extends AppCompatActivity implements View.OnClickListene
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if (task.isSuccessful()) {
                     DocumentSnapshot document = task.getResult();
-
                     if (document.exists()) {
                         Log.d("TAG", "DocumentSnapshot Data: " + document.getData());
                         String cname = document.getString("Name");
@@ -105,9 +104,13 @@ public class ClubDetail extends AppCompatActivity implements View.OnClickListene
 
     @Override
     public void onClick(View v) {
+        Intent intent1 = getIntent();
+        String clubName = intent1.getStringExtra("clubName");
         switch (v.getId()) {
             case R.id.navg_rate:
-                startActivity(new Intent(ClubDetail.this, Review.class));
+                Intent intent = new Intent(this, Review.class);
+                intent.putExtra("ClubName",clubName);
+                startActivity(intent);
                 break;
             case R.id.navg_chat:
                 startActivity(new Intent(ClubDetail.this, Message.class));

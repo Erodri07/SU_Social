@@ -109,7 +109,7 @@ public class ClubDetail extends AppCompatActivity implements View.OnClickListene
         switch (v.getId()) {
             case R.id.navg_rate:
                 Intent intent = new Intent(this, Review.class);
-                intent.putExtra("ClubName",clubName);
+                intent.putExtra("ClubName",clubName); //heyhey
                 startActivity(intent);
                 break;
             case R.id.navg_chat:

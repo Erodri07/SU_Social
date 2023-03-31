@@ -35,7 +35,7 @@ import java.util.List;
 public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHolder> {
     private List<CommentModel> commentlist;
     private List<String> documentIds;
-    //private String clubName;
+    //private String clubName haha
 
     public CommentAdapter(List<String>documentIds){
         this.documentIds = documentIds;

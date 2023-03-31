@@ -20,7 +20,7 @@
         android:background="@color/grey"
         android:padding="10dp"
         android:textSize="12sp"
-        android:hint="Add comment..."/>
+        android:hint="Add comment...."/>
 
     <LinearLayout
         android:layout_width="match_parent"

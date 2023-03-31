@@ -7,6 +7,7 @@ public class CommentModel {
     private int layout;
 
     public CommentModel(){}
+    //hdhd
 
     public CommentModel(String comment, String rate,int layout){
         this.rate = rate;

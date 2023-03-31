@@ -85,7 +85,7 @@ public class Review extends AppCompatActivity implements View.OnClickListener {
         String clubName = intent.getStringExtra("ClubName");
 
         adapter.LoadComment(clubName);
-       // testing
+       // testing 1
 
     }
 

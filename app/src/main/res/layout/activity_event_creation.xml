@@ -52,8 +52,7 @@
             android:layout_below="@+id/profilePhoto"
             android:text="Add Image"
             android:textColor="@color/black"
-            android:textSize="10sp"
-            >
+            android:textSize="10sp"/>
 
     <EditText
         android:id="@+id/eventCreationName"

@@ -1,31 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:fillViewport="true"
+    android:padding="16dp"
+    android:scrollbarSize="10dp"
     tools:context=".ClubCreation">
 
-    <TextView
-        android:id="@+id/clubCreationTitle"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginBottom="25dp"
-        android:gravity="center"
-        android:text="Create A Club"
-        android:textColor="@color/orange"
-        android:textSize="30dp"
-        android:textStyle="bold" />
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/clubCreationTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="50dp"
 
-    <EditText
-        android:id="@+id/clubCreationName"
+            android:text="Create A Club"
+            android:textColor="@color/orange"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/profilePhoto"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="30dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/clubCreationTitle"
+
+            android:src="@drawable/ic_profile"/>
+
+        <EditText
+            android:id="@+id/clubCreationName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/profilePhoto"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/darkGrey"
+            android:backgroundTint="@color/grey"
+            android:drawablePadding="20dp"
+            android:hint="Enter Club Name"
+            android:inputType="textPersonName"
+            android:padding="20dp"
+            android:textColor="@color/orange"
+            android:textColorHint="@color/orange" />
+
+        <EditText
+            android:id="@+id/clubCreationLeaderName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/clubCreationName"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/darkGrey"
+            android:backgroundTint="@color/grey"
+            android:drawablePadding="20dp"
+            android:hint="Enter Club President"
+            android:padding="20dp"
+            android:textColor="@color/orange"
+            android:textColorHint="@color/orange" />
+
+        <EditText
+        android:id="@+id/clubCreationContactInfo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/clubCreationTitle"
+        android:layout_below="@id/clubCreationLeaderName"
         android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"
@@ -33,80 +86,45 @@
         android:background="@color/darkGrey"
         android:backgroundTint="@color/grey"
         android:drawablePadding="20dp"
-        android:hint="Enter Club Name"
-        android:inputType="textPersonName"
+        android:hint="Enter Club Contact Information"
         android:padding="20dp"
         android:textColor="@color/orange"
         android:textColorHint="@color/orange" />
 
-    <EditText
-        android:id="@+id/clubCreationLeaderName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/clubCreationName"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="10dp"
-        android:background="@color/darkGrey"
-        android:backgroundTint="@color/grey"
-        android:drawablePadding="20dp"
-        android:hint="Enter Club President"
-        android:padding="20dp"
-        android:textColor="@color/orange"
-        android:textColorHint="@color/orange" />
+        <EditText
+            android:id="@+id/clubCreationDescription"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_below="@id/clubCreationContactInfo"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:background="@color/darkGrey"
+            android:backgroundTint="@color/grey"
+            android:drawablePadding="20dp"
+            android:hint="Enter Club Description"
+            android:padding="20dp"
+            android:textColor="@color/orange"
+            android:textColorHint="@color/grey" />
 
-    <EditText
-    android:id="@+id/clubCreationContactInfo"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_below="@id/clubCreationLeaderName"
-    android:layout_marginStart="20dp"
-    android:layout_marginTop="10dp"
-    android:layout_marginEnd="20dp"
-    android:layout_marginBottom="10dp"
-    android:background="@color/darkGrey"
-    android:backgroundTint="@color/grey"
-    android:drawablePadding="20dp"
-    android:hint="Enter Club Contact Information"
-    android:padding="20dp"
-    android:textColor="@color/orange"
-    android:textColorHint="@color/orange" />
+        <Button
+            android:id="@+id/clubCreationCancel"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/clubCreationDescription"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp"
+            android:text="CANCEL"/>
 
-    <EditText
-        android:id="@+id/clubCreationDescription"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_below="@id/clubCreationContactInfo"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="20dp"
-        android:background="@color/darkGrey"
-        android:backgroundTint="@color/grey"
-        android:drawablePadding="20dp"
-        android:hint="Enter Club Description"
-        android:padding="20dp"
-        android:textColor="@color/orange"
-        android:textColorHint="@color/grey" />
+        <Button
+            android:id="@+id/clubCreationSubmit"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/clubCreationDescription"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="240dp"
+            android:text="SUBMIT" />
 
-    <Button
-        android:id="@+id/clubCreationCancel"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/clubCreationDescription"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="20dp"
-        android:text="CANCEL"/>
-
-    <Button
-        android:id="@+id/clubCreationSubmit"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/clubCreationDescription"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="240dp"
-        android:text="SUBMIT" />
-
-
-</RelativeLayout>
+    </RelativeLayout>
+</ScrollView>

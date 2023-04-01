@@ -32,6 +32,8 @@ import com.squareup.picasso.Picasso;
 import org.w3c.dom.Text;
 
 import java.lang.reflect.Array;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -89,7 +91,7 @@ public class ClubDetail extends AppCompatActivity implements View.OnClickListene
 
                         nameTextView.setText(cname);
                         descripTextView.setText(cdescription);
-                        rateTextView.setText(crate);
+                        ///rateTextView.setText(crate);
                         contactTextView.setText(ccontact);
                         //clubimageView.setImageResource(cimage);
                         Picasso.get().load(url).fit().centerCrop().into(clubimageView);
@@ -114,8 +116,9 @@ public class ClubDetail extends AppCompatActivity implements View.OnClickListene
                     for (QueryDocumentSnapshot documentSnapshot : task.getResult()) {
                         count += Double.parseDouble(Objects.requireNonNull(documentSnapshot.getString("Rate")));
                     }
+                    NumberFormat formatter = new DecimalFormat("#0.00");
                     Double average = count / task.getResult().getDocuments().size();
-                    rateTextView.setText(average.toString());
+                    rateTextView.setText(formatter.format(average));
                 }
             }
         });

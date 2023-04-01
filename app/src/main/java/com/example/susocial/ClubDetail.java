@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.example.susocial.Club.ClubModel;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.AggregateQuery;
@@ -25,10 +26,15 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.storage.FirebaseStorage;
 
 import org.w3c.dom.Text;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
+import java.util.Objects;
 
 public class ClubDetail extends AppCompatActivity implements View.OnClickListener {
     private Button clubRate;
@@ -99,6 +105,21 @@ public class ClubDetail extends AppCompatActivity implements View.OnClickListene
                 }
             }
         });
+        CollectionReference clubReview = clubsList.collection("Comments");
+        clubReview.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful()) {
+                    Double count = 0.0;
+                    for (QueryDocumentSnapshot documentSnapshot : task.getResult()) {
+                        count += Double.parseDouble(Objects.requireNonNull(documentSnapshot.getString("Rate")));
+                    }
+                    Double average = count / task.getResult().getDocuments().size();
+                    rateTextView.setText(average.toString());
+                }
+            }
+        });
+
     }
 
 

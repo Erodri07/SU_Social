@@ -24,6 +24,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.firestore.auth.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -90,7 +91,7 @@ public class Home extends AppCompatActivity implements View.OnClickListener,Club
                         return true;
 
                     case R.id.message:
-                        startActivity(new Intent(getApplicationContext(),Message.class));
+                        startActivity(new Intent(getApplicationContext(),UserOrLeader.class));
                         overridePendingTransition(0,0);
                         return true;
 

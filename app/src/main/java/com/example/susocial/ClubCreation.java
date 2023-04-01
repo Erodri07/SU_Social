@@ -195,7 +195,7 @@ public class ClubCreation extends AppCompatActivity implements View.OnClickListe
             DocumentReference clubRef = db.collection("Clubs").document(name);
             clubRef.update("Name", name);
             clubRef.update("President", president);
-            clubRef.update("Contact Info", contactInfo);
+            clubRef.update("ContactInfo", contactInfo);
             clubRef.update("Description", description);
 
             //clubsList.document(name).set(data);

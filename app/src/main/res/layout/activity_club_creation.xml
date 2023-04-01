@@ -37,7 +37,7 @@
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/clubCreationTitle"
 
-            android:src="@drawable/ic_profile"/>
+            />
 
         <Button
             android:id="@+id/addProfileImageButton"
@@ -55,7 +55,7 @@
             >
         </Button>
 
-        <EditText
+        <TextView
             android:id="@+id/clubCreationName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -67,8 +67,6 @@
             android:background="@color/darkGrey"
             android:backgroundTint="@color/grey"
             android:drawablePadding="20dp"
-            android:hint="Enter Club Name"
-            android:inputType="textPersonName"
             android:padding="20dp"
             android:textColor="@color/orange"
             android:textColorHint="@color/orange" />

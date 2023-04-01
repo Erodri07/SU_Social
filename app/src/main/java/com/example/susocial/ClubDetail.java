@@ -27,6 +27,7 @@ import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.storage.FirebaseStorage;
+import com.squareup.picasso.Picasso;
 
 import org.w3c.dom.Text;
 
@@ -86,13 +87,15 @@ public class ClubDetail extends AppCompatActivity implements View.OnClickListene
                         String ccontact = document.getString("ContactInfo");
                         String crate = "N/A";
                         String cleader = document.getString("President");
-                        int cimage = R.drawable.ic_profile;
+                        String url = document.getString("clubPic");
+                        //int cimage = R.drawable.ic_profile;
 
                         nameTextView.setText(cname);
                         descripTextView.setText(cdescription);
                         rateTextView.setText(crate);
                         contactTextView.setText(ccontact);
-                        clubimageView.setImageResource(cimage);
+                        //clubimageView.setImageResource(cimage);
+                        Picasso.get().load(url).fit().centerCrop().into(clubimageView);
                         leaderTextView.setText(cleader);
                     }
                     else {

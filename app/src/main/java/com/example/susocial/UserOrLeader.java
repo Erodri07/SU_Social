@@ -86,7 +86,7 @@ public class UserOrLeader extends AppCompatActivity implements View.OnClickListe
                                 Toast.makeText(UserOrLeader.this, "You are not A Club Leader", Toast.LENGTH_SHORT).show();
                             }
                             else {
-                                startActivity(new Intent(UserOrLeader.this, ClubCreation.class));
+                                startActivity(new Intent(UserOrLeader.this, club_name.class));
                             }
                         }
                     }

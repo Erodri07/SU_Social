@@ -144,16 +144,10 @@ public class ClubCreation extends AppCompatActivity implements View.OnClickListe
                                 });
 
                         Picasso.get().load(uri.toString()).resize(210,210).centerCrop().into(clubPicture);
-
-                        //clubRef = db.collection("Clubs").document(name);
-                        //DocumentReference clubRef = db.collection("Clubs").document(name);
-                        //clubRef.update("clubPic", uri.toString());
                     }
                 });
             }
         });
-        //Toast.makeText(this, "Club Created", Toast.LENGTH_SHORT).show();
-        //startActivity(new Intent(ClubCreation.this, Home.class));
     }
 
     private String getFileExtension(Uri uri){

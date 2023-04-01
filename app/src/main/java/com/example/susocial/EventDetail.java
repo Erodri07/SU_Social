@@ -78,14 +78,14 @@ public class EventDetail extends AppCompatActivity implements View.OnClickListen
                         String elocat = document.getString("Location");
                         String etime = document.getString("Time");
                         String edate = document.getString("Date");
-                        int eimage = R.drawable.ic_profile;
+                        String url = document.getString("eventPic");
 
                         nameTextView.setText(ename);
                         descripTextView.setText(edescription);
                         locatTextView.setText(elocat);
                         timeTextView.setText(etime);
                         dateTextView.setText(edate);
-                        eventimageView.setImageResource(eimage);
+                        Picasso.get().load(url).resize(300,300).centerCrop().into(eventimageView);
 //                      Picasso.get().load(url).fit().centerCrop().into(clubimageView);
                     }
                     else {

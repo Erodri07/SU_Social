@@ -1,14 +1,14 @@
 package com.example.susocial.Event;
 
 public class EventModel {
-    private int eventImage;
+    private String eventImage;
     private String eventName;
     private String eventLocat;
     private String eventDate;
     private String eventTime;
 
     public EventModel(){}
-    public EventModel(int eventImage,String eventName,String eventLocat,String eventDate,String eventTime){
+    public EventModel(String eventImage,String eventName,String eventLocat,String eventDate,String eventTime){
         this.eventImage = eventImage;
         this.eventName = eventName;
         this.eventLocat = eventLocat;
@@ -16,7 +16,7 @@ public class EventModel {
         this.eventTime = eventTime;
     }
 
-    public int getEventImage(){
+    public String getEventImage(){
         return eventImage;
     }
     public String getEventName(){

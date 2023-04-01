@@ -56,9 +56,9 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
                         String date = document.getString("Date");
                         String time = document.getString("Time");
                         String location = document.getString("Location");
-                        //String image = document.getString("clubPic");
-                        int image = R.drawable.ic_profile;
-                       EventModel eventMode = new EventModel(image, name,location,date,time);
+                        String image = document.getString("eventPic");
+                        //int image = R.drawable.ic_profile;
+                        EventModel eventMode = new EventModel(image, name,location,date,time);
                         if(eventList!=null){
                             eventList.add(eventMode);
                         }
@@ -82,7 +82,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
     public void onBindViewHolder(@NonNull EventAdapter.ViewHolder holder, int position) {
         String documentId = documentIds.get(position);
         EventModel currentEvent = eventList.get(position);
-        holder.imageView.setImageResource(currentEvent.getEventImage());
+        Picasso.get().load(currentEvent.getEventImage()).into(holder.imageView);
         holder.textView1.setText(currentEvent.getEventName());
         holder.textView2.setText(currentEvent.getEventLocat());
         holder.textView3.setText(currentEvent.getEventDate());

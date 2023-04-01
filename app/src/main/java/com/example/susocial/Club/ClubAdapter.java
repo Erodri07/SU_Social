@@ -56,7 +56,7 @@ public class ClubAdapter extends RecyclerView.Adapter<ClubAdapter.ViewHolder> { 
                         String name = document.getString("Name");
                         String description = document.getString("Description");
                         String rate = "N/A";
-                       String image = document.getString("clubPic");
+                        String image = document.getString("clubPic");
                         ClubModel clubMode = new ClubModel(image,name,description,rate);
                         if(clublist!=null){
                             clublist.add(clubMode);

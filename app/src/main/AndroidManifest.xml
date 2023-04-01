@@ -41,6 +41,8 @@
         <activity
             android:name=".club_name"
             android:exported="false" />
+        <activity android:name=".event_name"
+            android:exported="false" />
         <activity
             android:name=".edit_profile"
             android:exported="false"

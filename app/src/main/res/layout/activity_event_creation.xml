@@ -36,9 +36,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginStart="30dp"
             android:layout_centerHorizontal="true"
-            android:layout_below="@+id/eventCreationTitle"
-
-            android:src="@drawable/baseline_image_24"/>
+            android:layout_below="@+id/eventCreationTitle" />
 
         <Button
             android:id="@+id/addProfileImageButton"
@@ -54,7 +52,7 @@
             android:textColor="@color/black"
             android:textSize="10sp"/>
 
-    <EditText
+    <TextView
         android:id="@+id/eventCreationName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -66,8 +64,7 @@
         android:background="@color/darkGrey"
         android:backgroundTint="@color/grey"
         android:drawablePadding="20dp"
-        android:hint="Enter Event Name"
-        android:inputType="textPersonName"
+
         android:padding="12dp"
         android:textColor="@color/orange"
         android:textColorHint="@color/orange" />

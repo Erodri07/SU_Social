@@ -90,7 +90,7 @@ public class Home extends AppCompatActivity implements View.OnClickListener,Club
                         overridePendingTransition(0,0);
                         return true;
 
-                    case R.id.message:
+                    case R.id.add_event:
                         startActivity(new Intent(getApplicationContext(),UserOrLeader.class));
                         overridePendingTransition(0,0);
                         return true;

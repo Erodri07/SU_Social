@@ -10,29 +10,19 @@
         android:layout_height="200dp"
         android:background="@color/grey">
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:id = "@+id/club_pic"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            tools:ignore="ExtraText">
-
-
             <ImageView
                 android:id="@+id/clubPicture"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
+                android:layout_marginLeft="10dp"
                 android:src="@drawable/ic_profile" />
-
-        </androidx.cardview.widget.CardView>
 
         <TextView
             android:id="@+id/club_rate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:layout_below="@+id/club_pic"
+            android:layout_below="@+id/clubPicture"
             android:layout_marginLeft="30dp"
             android:text="4.5/5"
             android:textSize="20sp"/>
@@ -42,7 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:layout_toRightOf="@+id/club_pic"
+            android:layout_toRightOf="@+id/clubPicture"
             android:layout_marginLeft="20dp"
             android:text="Active Minds"
             android:textSize="30sp"/>
@@ -53,7 +43,7 @@
             android:layout_height="100dp"
             android:layout_below="@+id/club_name"
             android:layout_marginTop="15dp"
-            android:layout_toRightOf="@+id/club_pic"
+            android:layout_toRightOf="@+id/clubPicture"
             android:layout_marginLeft="20dp"
             android:text="Active Minds is an organization to promote mental health awareness and combat stigmas surrounding mental illness. We are looking for more people who are devoted to our cause for this semester."/>
 

@@ -36,10 +36,10 @@ public class Message extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_message);
+        setContentView(R.layout.activity_user_or_leader);
 
         //UI for ActionBar
-        getSupportActionBar().setTitle("Message");
+        getSupportActionBar().setTitle("Add Event");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 

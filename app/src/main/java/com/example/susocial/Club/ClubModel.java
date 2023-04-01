@@ -12,14 +12,14 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 
 public class ClubModel {
 
-    private int imageview1;
+    private String imageview1;
     private String textview1;
     private String textview2;
     private String textview3;
 //    private String textView4;
 //    private String textView5;
     public ClubModel(){}
-    public ClubModel(int imageview1, String textview1,String textview2,String textview3){
+    public ClubModel(String imageview1, String textview1,String textview2,String textview3){
         this.imageview1 = imageview1;
         this.textview1 = textview1;
         this.textview2 = textview2;
@@ -28,7 +28,7 @@ public class ClubModel {
 //        this.textview5 = textview5;
     }
 
-    public int getImageview1() {
+    public String getImageview1() {
         return imageview1;
     }
 

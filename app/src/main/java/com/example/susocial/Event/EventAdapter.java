@@ -1,4 +1,4 @@
-package com.example.susocial.Club;
+package com.example.susocial.Event;
 
 import android.content.Intent;
 import android.os.Build;
@@ -12,7 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.susocial.ClubDetail;
+import com.example.susocial.EventDetail;
 import com.example.susocial.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -27,26 +27,25 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 
-public class ClubAdapter extends RecyclerView.Adapter<ClubAdapter.ViewHolder> { //implements Filterable
+public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> {
 
-    private List<ClubModel> clublist;
+    private List<EventModel> eventList;
     private List<String> documentIds;
     private OnItemClickListener mlistener;
 
-    public ClubAdapter(List<String>documentIds){
+    public EventAdapter(List<String> documentIds){
         this.documentIds = documentIds;
     }
     public interface OnItemClickListener{
-        void onItemClick(int position, String clubName);
+        void onItemClick(int position, String eventName);
     }
     public void setOnItemClickListener(OnItemClickListener listener){
         mlistener = listener;
     }
-
     public void loadData(){
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-        CollectionReference collectionReference = db.collection("Clubs");
-        clublist = new ArrayList<>();
+        CollectionReference collectionReference = db.collection("Events");
+        eventList= new ArrayList<>();
 
         collectionReference.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
@@ -54,12 +53,14 @@ public class ClubAdapter extends RecyclerView.Adapter<ClubAdapter.ViewHolder> { 
                 if(task.isSuccessful()){
                     for(QueryDocumentSnapshot document: task.getResult()){
                         String name = document.getString("Name");
-                        String description = document.getString("Description");
-                        String rate = "N/A";
-                       String image = document.getString("clubPic");
-                        ClubModel clubMode = new ClubModel(image,name,description,rate);
-                        if(clublist!=null){
-                            clublist.add(clubMode);
+                        String date = document.getString("Date");
+                        String time = document.getString("Time");
+                        String location = document.getString("Location");
+                        //String image = document.getString("clubPic");
+                        int image = R.drawable.ic_profile;
+                       EventModel eventMode = new EventModel(image, name,location,date,time);
+                        if(eventList!=null){
+                            eventList.add(eventMode);
                         }
                         documentIds.add(document.getId());
                     }
@@ -72,19 +73,20 @@ public class ClubAdapter extends RecyclerView.Adapter<ClubAdapter.ViewHolder> { 
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.clubinfo_design,parent,false);
+    public EventAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.eveninfo_design,parent,false);
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ClubAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull EventAdapter.ViewHolder holder, int position) {
         String documentId = documentIds.get(position);
-        ClubModel currentclub = clublist.get(position);
-        Picasso.get().load(currentclub.getImageview1()).into(holder.imageView);
-        holder.textView1.setText((CharSequence) currentclub.getTextview1());
-        holder.textView2.setText((CharSequence) currentclub.getTextview2());
-        holder.textView3.setText(currentclub.getTextview3());
+        EventModel currentEvent = eventList.get(position);
+        holder.imageView.setImageResource(currentEvent.getEventImage());
+        holder.textView1.setText(currentEvent.getEventName());
+        holder.textView2.setText(currentEvent.getEventLocat());
+        holder.textView3.setText(currentEvent.getEventDate());
+        holder.textView4.setText(currentEvent.getEventTime());
 
 
     }
@@ -94,35 +96,31 @@ public class ClubAdapter extends RecyclerView.Adapter<ClubAdapter.ViewHolder> { 
         return documentIds.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{ //implements View.OnClickListener
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public ImageView imageView;
-        public TextView textView1;
-        public TextView textView2;
-        public TextView textView3;
-        //Context context;
-
-
-        public ViewHolder(@NonNull View itemView){
+        private TextView textView1;
+        private TextView textView2;
+        private TextView textView3;
+        private TextView textView4;
+        public ViewHolder(@NonNull View itemView) {
             super(itemView);
-
-            imageView = itemView.findViewById(R.id.clubPicture);
-            textView1 = itemView.findViewById(R.id.club_name);
-            textView2 = itemView.findViewById(R.id.club_introduction);
-            textView3 = itemView.findViewById(R.id.club_rate);
+            imageView = itemView.findViewById(R.id.eventPicture);
+            textView1 = itemView.findViewById(R.id.event_name);
+            textView2 = itemView.findViewById(R.id.event_location);
+            textView3 = itemView.findViewById(R.id.event_date);
+            textView4 = itemView.findViewById(R.id.event_time);
 
             itemView.setOnClickListener(this);
 
             itemView.setOnClickListener(v -> {
                 if(mlistener != null){
                     int position = getAdapterPosition();
-                    String clubName = textView1.getText().toString();
+                    String eventName = textView1.getText().toString();
                     if (position !=RecyclerView.NO_POSITION){
-                        mlistener.onItemClick(position, clubName);
+                        mlistener.onItemClick(position, eventName);
                     }
                 }
             });
-
-
 
         }
 

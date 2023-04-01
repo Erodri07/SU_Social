@@ -119,26 +119,13 @@
             android:text="1111 Madison Ave Syracuse, NY 13210     E: ethomp07@syr.edu    P: 201-419-0663"/>
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp">
         <Button
             android:id="@+id/navg_rate"
-            android:layout_width="150dp"
-            android:layout_height="50dp"
-            android:layout_weight="1"
-            android:text="Rate"/>
-        <Button
-            android:id="@+id/navg_chat"
-            android:layout_width="150dp"
-            android:layout_height="50dp"
-            android:layout_weight="1"
-            android:layout_marginLeft="25dp"
-            android:text="Send Message"/>
-
-    </LinearLayout>
-
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center_horizontal"
+            android:text="See Other's Comments "/>
 
 
 </LinearLayout>

@@ -4,8 +4,8 @@
 
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -17,6 +17,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SUSocial"
         tools:targetApi="31">
+        <activity
+            android:name=".EventDetail"
+            android:exported="false"
+            android:parentActivityName=".Calendar"/>
         <activity
             android:name=".UserOrLeader"
             android:exported="false" />
@@ -36,7 +40,7 @@
             android:parentActivityName=".Home" />
         <activity
             android:name=".club_name"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".edit_profile"
             android:exported="false"
@@ -66,7 +70,6 @@
         <activity
             android:name=".passwordRetrieval"
             android:exported="false" />
-
         <activity
             android:name=".Home"
             android:exported="true">

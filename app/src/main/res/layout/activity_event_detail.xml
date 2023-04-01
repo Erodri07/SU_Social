@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".EventDetail">
+
+    <TextView
+        android:id="@+id/edetail_name"
+        android:layout_width="380dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:padding="5dp"
+        android:text="Orange After Dark: "
+        android:textColor="@color/orange"
+        android:textSize="25sp" />
+
+    <ImageView
+        android:id="@+id/edetail_image"
+        android:layout_width="380dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/ic_profile" />
+
+    <TextView
+        android:id="@+id/eventdescripText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@+id/cdetail_image"
+        android:text="Event Description: "
+        android:textColor="@color/orange"
+        android:textSize="18sp" />
+
+    <ScrollView
+        android:layout_width="380dp"
+        android:layout_height="150dp"
+        android:layout_margin="10dp"
+        android:fillViewport="true"
+        android:scrollbarSize="10dp">
+
+        <TextView
+            android:id="@+id/edetail_descrip"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:text="Active Minds is established for the expressed purpose of: (1) Increasing Syracuse University students’, faculty’s, and staffs’ awareness of issues surrounding mental health, substance abuse, and learning disabilities; issues surrounding mental health, substance abuse, and learning disabilities; the symptoms related to the above disorders; and mental health and disability resources available both on the Syracuse campus and in the surrounding community (2) Reducing stigma toward people living with mental illness, people with substance abuse problems, and people with learning disabilities so that students will feel more comfortable seeking help when it is needed and openly discussing mental-health related issues (3) Promoting a general awareness of comprehensive “self health” by emphasizing techniques that care for the body as well as the mind (4) Providing Syracuse students with easy access to information about Eating Disorders, Depression, Bipolar Disorder, Schizophrenia, Post Traumatic Stress Disorder, Generalized Anxiety Disorder, Substance Abuse, and Learning Disabilities (5) Serving as a liaison between Syracuse’s student body and the mental health community by hosting guest speakers, providing informational fact sheets, organizing charity fundraisers, maintaining a comprehensive website, and organizing other events designed to reduce stigma and raise awareness" />
+    </ScrollView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:text="Location: "
+        android:textSize="18sp"
+        android:textColor="@color/orange"/>
+
+    <TextView
+        android:id="@+id/edetail_location"
+        android:layout_width="350dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:text="Hall of Lanuage 217 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        android:textSize="15sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:text="Date: "
+        android:textSize="18sp"
+        android:textColor="@color/orange"/>
+
+    <TextView
+        android:id="@+id/edetail_date"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_gravity="center_horizontal"
+        android:text="April 7th, 2023 "
+        android:textSize="15sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="4dp"
+        android:text="Time:  "
+        android:textSize="18sp"
+        android:textColor="@color/orange"/>
+
+    <TextView
+        android:id="@+id/edetail_time"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_gravity="center_horizontal"
+        android:text="5pm "
+        android:textSize="15sp"/>
+
+
+
+
+</LinearLayout>

@@ -9,9 +9,9 @@
         android:icon = "@drawable/ic_calendar"/>
 
 
-    <item android:id = "@+id/message"
+    <item android:id = "@+id/add_event"
         android:title=" "
-        android:icon = "@drawable/ic_message"/>
+        android:icon = "@drawable/ic_addevent"/>
 
 
     <item android:id = "@+id/profile"

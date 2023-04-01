@@ -13,6 +13,8 @@ import android.widget.SearchView;
 
 import com.example.susocial.Club.ClubAdapter;
 import com.example.susocial.Club.ClubModel;
+import com.example.susocial.Event.EventAdapter;
+import com.example.susocial.Event.EventModel;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -28,8 +30,16 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Calendar extends AppCompatActivity {
-    BottomNavigationView bottomNavigationView;
+public class Calendar extends AppCompatActivity implements View.OnClickListener, EventAdapter.OnItemClickListener {
+    private RecyclerView recyclerView;
+    LinearLayoutManager linearLayoutManager;
+    //ClubAdapter adapter;
+    private EventAdapter adapter;
+    private List<EventModel> eventlist;
+    private List<String> documentIds;
+    private FirebaseFirestore db;
+    private DocumentReference eventRef;
+    private CollectionReference collectRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,5 +49,28 @@ public class Calendar extends AppCompatActivity {
         // UI for ActionBar
         getSupportActionBar().setTitle("Calendar");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        db = FirebaseFirestore.getInstance();
+        List <String> documentIds = new ArrayList<>();
+
+        recyclerView = findViewById(R.id.recyclerView_calendar);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        adapter = new EventAdapter(documentIds);
+        recyclerView.setAdapter(adapter);
+        adapter.setOnItemClickListener(this);
+        adapter.loadData();
+    }
+
+    @Override
+    public void onClick(View v) {
+
+    }
+
+    @Override
+    public void onItemClick(int position, String eventName) {
+        Intent intent = new Intent(this,EventDetail.class);
+        intent.putExtra("eventName",eventName);
+        startActivity(intent);
+
     }
 }

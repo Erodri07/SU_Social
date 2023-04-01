@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@color/grey">
+
+        <TextView
+            android:id="@+id/event_name"
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_toRightOf="@+id/eventPicture"
+            android:text="Orange After Dark: Movie Night - Watch Moive with new friends"
+            android:textColor="@color/orange"
+            android:textSize="18sp" />
+
+        <ImageView
+            android:id="@+id/eventPicture"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginLeft="10dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_profile" />
+        <TextView
+            android:id="@+id/locationtext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/event_name"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/eventPicture"
+            android:text="Location: "
+            android:textColor="@color/orange"/>
+
+        <TextView
+            android:id="@+id/event_location"
+            android:layout_width="300dp"
+            android:layout_height="20dp"
+            android:layout_toRightOf="@+id/locationtext"
+            android:layout_marginRight="10dp"
+            android:layout_below="@+id/event_name"
+            android:text="Hall of Language 217"/>
+
+        <TextView
+            android:id="@+id/timetext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/locationtext"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/eventPicture"
+            android:layout_marginLeft="10dp"
+            android:text="Time: "
+            android:textColor="@color/orange"/>
+        <TextView
+            android:id="@+id/event_date"
+            android:layout_width="300dp"
+            android:layout_height="20dp"
+            android:layout_toRightOf="@+id/timetext"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_below="@+id/event_location"
+            android:text="April 7th, 2023"/>
+
+        <TextView
+            android:id="@+id/event_time"
+            android:layout_width="300dp"
+            android:layout_height="20dp"
+            android:layout_toRightOf="@+id/timetext"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_below="@+id/event_date"
+            android:text="4pm"/>
+
+
+
+
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

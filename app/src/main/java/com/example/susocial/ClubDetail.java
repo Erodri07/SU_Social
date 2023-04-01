@@ -39,7 +39,7 @@ import java.util.Objects;
 
 public class ClubDetail extends AppCompatActivity implements View.OnClickListener {
     private Button clubRate;
-    private Button clubChat;
+
     private DocumentReference clubRef;
     private DocumentReference collectRef;
     private FirebaseFirestore db;
@@ -56,9 +56,6 @@ public class ClubDetail extends AppCompatActivity implements View.OnClickListene
 
         clubRate = findViewById(R.id.navg_rate);
         clubRate.setOnClickListener(this);
-
-        clubChat = findViewById(R.id.navg_chat);
-        clubChat.setOnClickListener(this);
 
         db = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
@@ -88,7 +85,7 @@ public class ClubDetail extends AppCompatActivity implements View.OnClickListene
                         String crate = "N/A";
                         String cleader = document.getString("President");
                         String url = document.getString("clubPic");
-                        //int cimage = R.drawable.ic_profile;
+
 
                         nameTextView.setText(cname);
                         descripTextView.setText(cdescription);
@@ -136,8 +133,6 @@ public class ClubDetail extends AppCompatActivity implements View.OnClickListene
                 intent.putExtra("ClubName",clubName); //heyhey
                 startActivity(intent);
                 break;
-            case R.id.navg_chat:
-                startActivity(new Intent(ClubDetail.this, Message.class));
 
         }
     }

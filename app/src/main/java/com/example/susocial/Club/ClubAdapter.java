@@ -55,9 +55,8 @@ public class ClubAdapter extends RecyclerView.Adapter<ClubAdapter.ViewHolder> { 
                     for(QueryDocumentSnapshot document: task.getResult()){
                         String name = document.getString("Name");
                         String description = document.getString("Description");
-                        String rate = "N/A";
                         String image = document.getString("clubPic");
-                        ClubModel clubMode = new ClubModel(image,name,description,rate);
+                        ClubModel clubMode = new ClubModel(image,name,description);
                         if(clublist!=null){
                             clublist.add(clubMode);
                         }
@@ -84,8 +83,6 @@ public class ClubAdapter extends RecyclerView.Adapter<ClubAdapter.ViewHolder> { 
         Picasso.get().load(currentclub.getImageview1()).into(holder.imageView);
         holder.textView1.setText((CharSequence) currentclub.getTextview1());
         holder.textView2.setText((CharSequence) currentclub.getTextview2());
-        holder.textView3.setText(currentclub.getTextview3());
-
 
     }
 
@@ -98,7 +95,6 @@ public class ClubAdapter extends RecyclerView.Adapter<ClubAdapter.ViewHolder> { 
         public ImageView imageView;
         public TextView textView1;
         public TextView textView2;
-        public TextView textView3;
         //Context context;
 
 
@@ -108,7 +104,6 @@ public class ClubAdapter extends RecyclerView.Adapter<ClubAdapter.ViewHolder> { 
             imageView = itemView.findViewById(R.id.clubPicture);
             textView1 = itemView.findViewById(R.id.club_name);
             textView2 = itemView.findViewById(R.id.club_introduction);
-            textView3 = itemView.findViewById(R.id.club_rate);
 
             itemView.setOnClickListener(this);
 

@@ -127,6 +127,7 @@ public class ClubDetail extends AppCompatActivity implements View.OnClickListene
 
 
     @Override
+    //Mingyan Zhang
     public void onClick(View v) {
         Intent intent1 = getIntent();
         String clubName = intent1.getStringExtra("clubName");

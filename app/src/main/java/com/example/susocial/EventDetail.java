@@ -38,6 +38,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class EventDetail extends AppCompatActivity implements View.OnClickListener {
+    //Mingyan Zhang implemented the whole EventDetail file.
     private DocumentReference clubRef;
     private DocumentReference collectRef;
     private FirebaseFirestore db;

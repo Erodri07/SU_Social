@@ -33,6 +33,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHolder> {
+    //Mingyan Zhang implemented the whole CommentAdapter file.
     private List<CommentModel> commentlist;
     private List<String> documentIds;
     //private String clubName haha

@@ -28,7 +28,7 @@ import java.util.List;
 import java.util.function.Consumer;
 
 public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> {
-
+    ///Mingyan Zhang implemented the whole EventAdapter file.
     private List<EventModel> eventList;
     private List<String> documentIds;
     private OnItemClickListener mlistener;

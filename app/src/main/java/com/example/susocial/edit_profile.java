@@ -106,6 +106,7 @@ public class edit_profile extends AppCompatActivity implements View.OnClickListe
 
     }
     @Override
+    //Mingyan Zhang did the logic for pressing on the CANCEL and Submit button
     public void onClick(View v){
         switch (v.getId()) {
             case R.id.editProfile_cancel:

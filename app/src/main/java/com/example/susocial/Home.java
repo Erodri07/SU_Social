@@ -57,7 +57,7 @@ public class Home extends AppCompatActivity implements View.OnClickListener,Club
         db = FirebaseFirestore.getInstance();
         List <String> documentIds = new ArrayList<>();
 
-       // SearchView searchView = findViewById(R.id.search_home);
+       //Mingyan Zhang implemented the logic for the recycler view
 
         recyclerView = findViewById(R.id.recyclerView_home);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -74,6 +74,7 @@ public class Home extends AppCompatActivity implements View.OnClickListener,Club
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setSelectedItemId(R.id.home);
 
+        //Mingyan Zhang also implemented the logic of pressing on differernt options to different pages.
         bottomNavigationView.setOnItemSelectedListener(new BottomNavigationView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {

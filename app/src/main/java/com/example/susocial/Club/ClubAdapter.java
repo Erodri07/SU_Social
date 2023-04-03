@@ -27,8 +27,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 
-public class ClubAdapter extends RecyclerView.Adapter<ClubAdapter.ViewHolder> { //implements Filterable
-
+public class ClubAdapter extends RecyclerView.Adapter<ClubAdapter.ViewHolder> {
+    // Mingyan Zhang implemented the whole ClubAdpater file except for onItemClickListener.
     private List<ClubModel> clublist;
     private List<String> documentIds;
     private OnItemClickListener mlistener;

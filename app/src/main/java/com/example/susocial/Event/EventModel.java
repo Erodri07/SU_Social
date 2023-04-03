@@ -1,6 +1,7 @@
 package com.example.susocial.Event;
 
 public class EventModel {
+    //Mingyan Zhang implemented the whole EventModel file.
     private String eventImage;
     private String eventName;
     private String eventLocat;

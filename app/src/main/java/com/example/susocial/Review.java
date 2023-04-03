@@ -42,6 +42,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Review extends AppCompatActivity implements View.OnClickListener {
+    //Mingyan Zhang implemented the whole Review file.
     private AlertDialog.Builder dialogBuilder;
     private AlertDialog dialog;
     private EditText comment_edit;

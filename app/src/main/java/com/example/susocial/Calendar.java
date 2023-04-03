@@ -31,6 +31,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Calendar extends AppCompatActivity implements View.OnClickListener, EventAdapter.OnItemClickListener {
+    //Mingyan Zhang implemented the whole Calendar file.
     private RecyclerView recyclerView;
     LinearLayoutManager linearLayoutManager;
     //ClubAdapter adapter;

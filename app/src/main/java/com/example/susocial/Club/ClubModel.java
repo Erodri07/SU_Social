@@ -11,7 +11,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 
 public class ClubModel {
-
+    //Mingyan Zhang implemented the whole ClubModel file.
     private String imageview1;
     private String textview1;
     private String textview2;

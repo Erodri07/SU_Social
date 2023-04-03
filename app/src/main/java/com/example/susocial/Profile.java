@@ -106,6 +106,8 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
     }
 
     @Override
+    //Mingyan Zhang implemented the logic of pressing on different options
+    // in the setting menu will lead to different functions
     public boolean onCreateOptionsMenu(Menu menu){
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.setting_menu,menu);

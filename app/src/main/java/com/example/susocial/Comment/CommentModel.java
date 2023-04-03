@@ -1,6 +1,7 @@
 package com.example.susocial.Comment;
 
 public class CommentModel {
+    //Mingyan Zhang implemented the whole CommentModel file.
     private String rate;
     private String comment;
 

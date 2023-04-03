@@ -42,7 +42,7 @@ public class UserOrLeader extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_or_leader);
 
-
+        //Mingyan Zhang
         chooseCLeader = findViewById(R.id.ChooseClubLeader);
         chooseCLeader.setOnClickListener(this);
         chooseELeader = findViewById(R.id.ChooseEventLeader);

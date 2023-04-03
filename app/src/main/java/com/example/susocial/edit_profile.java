@@ -46,6 +46,7 @@ import java.lang.reflect.Array;
 
 public class edit_profile extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemSelectedListener {
 
+    //Eric implemented this whole class
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
     private DocumentReference userRef;
@@ -60,6 +61,7 @@ public class edit_profile extends AppCompatActivity implements View.OnClickListe
     private EditText userInterests;
     private StorageReference imageStorageRef;
 
+    //Eric Rodriguez
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -120,6 +122,7 @@ public class edit_profile extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    //This and the following functions are all for the uploading photo function
     private void uploadProfilePic() {
         Intent intent = new Intent();
         intent.setType("image/*");
@@ -171,6 +174,7 @@ public class edit_profile extends AppCompatActivity implements View.OnClickListe
         String newGradYear = gradYear.getSelectedItem().toString();
         String newInterests = userInterests.getText().toString();
 
+        //all are requirements that the user has to fulfill before editing the profile
         if (TextUtils.isEmpty(newUserName)) {
             fullName.setError("New Username cannot be Empty");
             fullName.requestFocus();

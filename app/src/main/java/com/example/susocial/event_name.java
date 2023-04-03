@@ -14,6 +14,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 public class event_name extends AppCompatActivity {
 
+    //Eric implemented this whole class and the corresponding XML
     private EditText eventName;
     private Button submitButton;
     private FirebaseFirestore db;
@@ -42,6 +43,7 @@ public class event_name extends AppCompatActivity {
         });
     }
 
+    //Go to event creation with eventName
     private void pushName(String eventName) {
         Intent intent = new Intent(this,event_creation.class);
         intent.putExtra("eventName",eventName);

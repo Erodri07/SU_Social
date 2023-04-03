@@ -42,6 +42,7 @@ import java.net.URL;
 
 public class Profile extends AppCompatActivity implements View.OnClickListener {
     //areNotificationsEnabled()
+    //Eric implemented the whole class
     private final int NOTIFICATION_PERMISSION_CODE = 1;
     private AlertDialog.Builder dialogBuilder;
     private AlertDialog myDialog;
@@ -138,7 +139,7 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
                 return super.onOptionsItemSelected(item);
         }
     }
-    // Delete Account Confiramtion Popup window
+    // Delete Account Confiramtion Popup window, Mingyan
     public void deleteConfirmationDialog(){
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseUser = firebaseAuth.getCurrentUser();

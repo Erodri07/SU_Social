@@ -38,7 +38,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ClubCreation extends AppCompatActivity implements View.OnClickListener {
-
+    //Eric implemented this whole class
     private EditText clubPres, clubDes, clubContact;
     private Button cancelButton, submitButton, pictureButton;
     private TextView clubName;

@@ -15,7 +15,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 public class club_name extends AppCompatActivity{
-
+    // Eric implmented this whole class and the corresponding XML file.
     private EditText clubName;
     private Button submitButton;
     private FirebaseFirestore db;
@@ -43,6 +43,7 @@ public class club_name extends AppCompatActivity{
         });
     }
 
+    //go to club creation with the club name
     private void pushName(String clubName) {
         Intent intent = new Intent(this,ClubCreation.class);
         intent.putExtra("clubName",clubName);

@@ -37,6 +37,7 @@ import java.util.Map;
 
 public class UserRegistration extends AppCompatActivity implements View.OnClickListener {
 
+    //Eric implmented the whole class
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
     private String userID;
@@ -90,6 +91,7 @@ public class UserRegistration extends AppCompatActivity implements View.OnClickL
         Query validSUIDs = db.collection("Valid SUIDs").whereEqualTo("SUID", suID);
         AggregateQuery countValidSUIDs = validSUIDs.count();
 
+        //Requirements user needs to fulfill to create an account
         if (TextUtils.isEmpty(name)){
             userName.setError("Name cannot be Empty");
             userName.requestFocus();
@@ -130,6 +132,7 @@ public class UserRegistration extends AppCompatActivity implements View.OnClickL
                             userSUID.requestFocus();
                         }
                         else {
+                            //Create the account
                             mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
@@ -163,6 +166,7 @@ public class UserRegistration extends AppCompatActivity implements View.OnClickL
         }
 
         else{
+            //create the account
             mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {

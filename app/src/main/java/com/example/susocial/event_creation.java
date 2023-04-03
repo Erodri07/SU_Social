@@ -41,6 +41,7 @@ import java.util.Calendar;
 
 public class event_creation extends AppCompatActivity implements View.OnClickListener{
 
+    //Eric implemented the whole class
     private EditText eventDate, eventLocation, eventDescription;
     private TextView eventName, eventTime;
     private Button cancelButton, submitButton, addEventPic;
@@ -101,6 +102,7 @@ public class event_creation extends AppCompatActivity implements View.OnClickLis
         }
     }
 
+    //This is for the clock dialog
     private void selectTime() {
         calendarTime = Calendar.getInstance();
         currentHour = calendarTime.get(Calendar.HOUR_OF_DAY);
@@ -121,6 +123,7 @@ public class event_creation extends AppCompatActivity implements View.OnClickLis
         timePickerDialog.show();
     }
 
+    //This is for forcing the DD/MM/YY format
     TextWatcher tw = new TextWatcher() {
         private String current = "";
         private String ddmmyyyy = "DDMMYYYY";
@@ -252,6 +255,7 @@ public class event_creation extends AppCompatActivity implements View.OnClickLis
         String location = eventLocation.getText().toString();
         String description = eventDescription.getText().toString();
 
+        //Requirements user needs to fulfill to create the event
         if (TextUtils.isEmpty(name)) {
             eventName.setError("Event Name cannot be Empty");
             eventName.requestFocus();

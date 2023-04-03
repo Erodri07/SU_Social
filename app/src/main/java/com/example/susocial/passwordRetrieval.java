@@ -18,6 +18,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class passwordRetrieval extends AppCompatActivity implements View.OnClickListener{
 
+    //Eric implemented the whole class
     private FirebaseAuth mAuth;
     private Button submitButton;
     private EditText userEmail;
@@ -52,6 +53,7 @@ public class passwordRetrieval extends AppCompatActivity implements View.OnClick
             userEmail.requestFocus();
         }
         else{
+            //send link to the email
             mAuth.sendPasswordResetEmail(email).addOnCompleteListener(new OnCompleteListener<Void>() {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {

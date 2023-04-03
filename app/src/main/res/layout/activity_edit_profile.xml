@@ -36,7 +36,7 @@
         android:layout_margin="4dp"
         android:drawablePadding="7dp"
         android:paddingLeft="10dp"
-        android:textColor="@color/grey"/>
+        android:textColor="@color/black"/>
 
     <Spinner
         android:layout_width="match_parent"
@@ -72,7 +72,7 @@
         android:layout_marginTop="10dp"
         android:drawablePadding="7dp"
         android:paddingLeft="10dp"
-        android:textColor="@color/grey"/>
+        android:textColor="@color/black"/>
 
     <Button
         android:id="@+id/uploadPic"

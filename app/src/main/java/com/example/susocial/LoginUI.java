@@ -21,6 +21,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginUI extends AppCompatActivity implements View.OnClickListener{
 
+    //Eric implemented whole class
     private FirebaseAuth mAuth;
     private Button logInButton;
     private Button forgotPassButton;

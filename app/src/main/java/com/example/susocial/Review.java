@@ -135,6 +135,7 @@ public class Review extends AppCompatActivity implements View.OnClickListener {
         if (TextUtils.isEmpty(comment)) {
             comment_edit.setError("Comment cannot be Empty");
             comment_edit.requestFocus();
+            Toast.makeText(this, "Comment cannot be Empty", Toast.LENGTH_SHORT).show();
         } else if (TextUtils.isEmpty(rate)) {
             Toast.makeText(this, "Rate cannot be Empty", Toast.LENGTH_SHORT).show();
             comment_star.requestFocus();

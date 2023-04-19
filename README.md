@@ -6,7 +6,7 @@
 
   4.1. If using an Android Device, connect your device via a USB cable (will need to enable USB debugging) or WiFi. Once connected, your device will appear at the top right. Run app
 
-  4.2. If you are using an emulator, you will need to go to Device Manager and Create Device. For reference, we created a Pixel 4 Virtual Device with API 33, but feel free to create whatever device of you choosing with a minimum of API 21
+  4.2. If you are using an emulator, you will need to go to Device Manager and Create Device. For reference, we created a Pixel 4 Virtual Device with API 33, but feel free to create whatever device of you choosing with a minimum of API 21 - 33
      
 # User Interfaces
 We have created the following User Interfaces:

@@ -27,3 +27,6 @@ We have created the following User Interfaces:
 13. Profile Edit
 
 Note: You will need to upload a picture from your device for 10 and 11 (optionally for 13). Be aware that if you are using an emulator, when uploading photos, you will not have any on the device. A workaround we found was to use a Google Photos account, upload a photo onto there, and then log into your Google Photos account on the emulator. It will take some time for the emulator to get the photo when you upload your photo to Google Photos, but it will appear evantually.
+
+# Final Project Report
+[Project Report - SU Social.pdf](https://github.com/user-attachments/files/15828389/Project.Report.-.SU.Social.pdf)
